@@ -6,7 +6,6 @@ public class RecursiveFibonacci_7 {
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-
         int n = Integer.parseInt(scan.nextLine());
         long[] fibonaccies = new long[n + 1];
 
