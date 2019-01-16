@@ -16,17 +16,17 @@ public class BrowserHistoryUpgrade_08 {
         while (!line.equals("Home")) {
             if (line.equals("back")) {
                 if (!browser.isEmpty()) {
-                    forwards.addFirst(current);
+                    forwards.push(current);
                     current = browser.pop();
                 } else {
                     System.out.println("no previous URLs");
-
+                    line = sc.nextLine();
+                    continue;
                 }
             } else if (line.equals("forward")) {
                 if (!forwards.isEmpty()) {
                     browser.push(current);
                     current = forwards.pop();
-
                 } else {
                     System.out.println("no next URLs");
                     line = sc.nextLine();
@@ -35,15 +35,15 @@ public class BrowserHistoryUpgrade_08 {
             } else {
                 if (!current.equals("")) {
                     browser.push(current);
+                    if (!forwards.isEmpty()) {
+                        forwards.clear();
+                    }
                 }
 
                 current = line;
             }
 
-            if (!current.equals("")) {
-                System.out.println(current);
-            }
-
+            System.out.println(current);
             line = sc.nextLine();
         }
     }

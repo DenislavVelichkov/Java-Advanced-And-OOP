@@ -18,23 +18,36 @@ public class BrowserHistoryUpgrade_08ver2 {
             switch (line) {
                 case "back":
                     if (!browser.isEmpty()) {
-
+                        forwards.push(current);
+                        current = browser.pop();
                     } else {
-                        System.out.println("");
+                        System.out.println("no previous URLs");
+                        line = sc.nextLine();
+                        continue;
                     }
                     break;
                 case "forward":
                     if (!forwards.isEmpty()) {
-
+                        browser.push(current);
+                        current = forwards.pop();
                     } else {
-                        System.out.println("");
+                        System.out.println("no next URLs");
+                        line = sc.nextLine();
+                        continue;
                     }
                     break;
                 default:
+                    if (!current.equals("")) {
+                        browser.push(current);
+                        if (!forwards.isEmpty()) {
+                            forwards.clear();
+                        }
+                    }
 
+                    current = line;
                     break;
             }
-
+            System.out.println(current);
             line = sc.nextLine();
         }
     }
