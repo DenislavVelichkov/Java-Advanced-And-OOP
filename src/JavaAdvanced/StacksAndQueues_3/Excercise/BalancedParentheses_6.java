@@ -1,6 +1,5 @@
 package JavaAdvanced.StacksAndQueues_3.Excercise;
 
-import java.text.DecimalFormat;
 import java.util.ArrayDeque;
 import java.util.Scanner;
 
