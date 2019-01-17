@@ -9,11 +9,11 @@ public class SimpleTextEditor_8 {
         Scanner sc = new Scanner(System.in);
         int n = Integer.parseInt(sc.nextLine());
         StringBuilder text = new StringBuilder();
+        ArrayDeque<StringBuilder> stack = new ArrayDeque<>();
 
         while (n-- > 0) {
             String[] tokens = sc.nextLine().split("\\s+");
             String command = tokens[0];
-            ArrayDeque<StringBuilder> stack = new ArrayDeque<>();
 
             switch (command) {
                 case "1":
