@@ -27,22 +27,22 @@ public class Robotics_5 {
         int startTime = hours * 3600 + minutes * 60 + seconds;
         int time = 0;
         Deque<String> products = new ArrayDeque<>();
-        String product = sc.nextLine();
+        String item = sc.nextLine();
 
-        while (!product.equals("End")) {
-            products.offer(product);
-            product = sc.nextLine();
+        while (!item.equals("End")) {
+            products.offer(item);
+            item = sc.nextLine();
         }
 
         while (!products.isEmpty()) {
             time++;
-            String firstProduct = products.pollFirst();
+            String product = products.pollFirst();
             boolean isAssigned = false;
 
             for (int i = 0; i < robots.length; i++) {
                 if (processTime[i] == 0 && !isAssigned) {
                     processTime[i] = workingTime[i];
-                    printTask(robots[i],  startTime + time, firstProduct);
+                    printTask(robots[i],startTime + time, product);
                     isAssigned = true;
                 }
                 if (processTime[i] > 0) {
