@@ -24,14 +24,18 @@ public class SimpleTextEditor_8 {
                     int count = Integer.parseInt(tokens[1]);
                     int start = text.length() - count;
                     text.delete(start, start + count);
-                    stack.push(text);
+                    stack.push(new StringBuilder(text));
                     break;
                 case "3":
                     System.out.println(text.charAt(Integer.parseInt(tokens[1]) - 1));
                     break;
                 case "4":
-                    stack.pop();
-                    text = stack.peek();
+                    if (stack.size() > 1) {
+                        stack.pop();
+                        text = stack.peek();
+                    } else {
+                        text = new StringBuilder();
+                    }
                     break;
                 default:
                     break;
