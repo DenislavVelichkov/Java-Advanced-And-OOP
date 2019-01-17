@@ -64,4 +64,12 @@ public class Robotics_5 {
         System.out.println(String.format("%s - %s [%s:%s:%s]", robot, product,
                 format.format(hours), format.format(minutes), format.format(seconds)));
     }
+    public static String convertSecondsToHHMMSS(int seconds){ //time
+
+        int s = seconds % 60;
+        int m = (seconds/ 60) % 60;
+        int h = (seconds / (60 * 60)) % 24;
+
+        return String.format("%02d:%02d:%02d",h,m,s);
+    }
 }
