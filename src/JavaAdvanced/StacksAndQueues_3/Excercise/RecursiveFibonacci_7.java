@@ -17,7 +17,7 @@ public class RecursiveFibonacci_7 {
         if (n == 0 || n == 1) {
             return 1;
         }
-        if (fibonacci[n] != 0) {
+        if (fibonacci[n] != 0) { //memoization
             return fibonacci[n];
         }
 
