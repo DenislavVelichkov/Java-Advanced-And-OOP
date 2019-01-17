@@ -7,13 +7,13 @@ public class RecursiveFibonacci_7 {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int n = Integer.parseInt(scan.nextLine());
-        long[] fibonaccies = new long[n + 1];
+        long[] fibList = new long[n + 1];
 
-        long fib8 = fibonacci(n, fibonaccies);
-        System.out.println(fib8);
+        long fibResult = calculateFibonacci(n, fibList);
+        System.out.println(fibResult);
     }
 
-    private static long fibonacci(int n, long[] fibonacci) {
+    private static long calculateFibonacci(int n, long[] fibonacci) {
         if (n == 0 || n == 1) {
             return 1;
         }
@@ -21,8 +21,8 @@ public class RecursiveFibonacci_7 {
             return fibonacci[n];
         }
 
-        long prev = fibonacci(n - 1, fibonacci);
-        long prevPrev = fibonacci(n - 2, fibonacci);
+        long prev = calculateFibonacci(n - 1, fibonacci);
+        long prevPrev = calculateFibonacci(n - 2, fibonacci);
         long result = prev + prevPrev;
         fibonacci[n] = result;
         return result;
