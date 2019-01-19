@@ -1,7 +1,6 @@
 package JavaAdvanced.StacksAndQueues_3.Excercise;
 
 import java.util.ArrayDeque;
-import java.util.Deque;
 import java.util.Scanner;
 
 public class PoisonousPlants_10 {
@@ -46,10 +45,6 @@ public class PoisonousPlants_10 {
                         cycleDeque.addFirst(reShuffle);
                     }
                 } else {
-                    if (plantAboutToDie.size() == 0) {
-                        daysCounter++;
-                    }
-
                     plants.pop();
                 }
             }
@@ -57,9 +52,9 @@ public class PoisonousPlants_10 {
                 plants = cycleDeque;
             }
 
+            daysCounter++;
         } while (!plantAboutToDie.isEmpty());
 
-        System.out.println(daysCounter - 1);
-
+        System.out.println(daysCounter);
     }
 }
