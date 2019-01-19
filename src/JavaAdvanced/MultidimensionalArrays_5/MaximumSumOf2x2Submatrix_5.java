@@ -22,14 +22,12 @@ public class MaximumSumOf2x2Submatrix_5 {
         }
 
         int maxValue = Integer.MIN_VALUE;
-        int matrixSum = -1;
         int maxRow = 0;
         int maxCol = 0;
 
         for (int row = 0; row < size[0] - 1; row++) {
             for (int col = 0; col < size[1] - 1; col++) {
-                matrixSum = calcMatrixSum(matrix, row, col);
-                if (matrixSum == 0) continue;
+               int matrixSum = calcMatrixSum(matrix, row, col);
                 if (matrixSum >= maxValue) {
                     maxValue = matrixSum;
                     maxRow = row;
@@ -38,23 +36,19 @@ public class MaximumSumOf2x2Submatrix_5 {
             }
         }
 
-        System.out.printf("%d %d\n%d %d\n", matrix[maxRow][maxCol],
+        System.out.printf("%d %d\n%d %d\n%d", matrix[maxRow][maxCol],
                 matrix[maxRow][maxCol + 1],
                 matrix[maxRow + 1][maxCol],
                 matrix[maxRow + 1][maxCol + 1],
-                matrixSum);
+                maxValue);
 
     }
 
     private static int calcMatrixSum(int[][] matrix, int row, int col) {
-        if (row == matrix.length || col == matrix.length) {
-            return 0;
-        } else {
             return matrix[row][col] +
                     matrix[row][col + 1] +
                     matrix[row + 1][col] +
                     matrix[row + 1][col + 1];
-        }
+
     }
 }
-
