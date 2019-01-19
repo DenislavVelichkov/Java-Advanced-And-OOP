@@ -12,24 +12,54 @@ public class PoisonousPlants_10 {
         int plantsCount = Integer.parseInt(sc.nextLine());
         String[] inputPasticide = sc.nextLine().split("\\s+");
         ArrayDeque<Integer> plants = new ArrayDeque<>();
+        ArrayDeque<Integer> plantAboutToDie = new ArrayDeque<>();
+        ArrayDeque<Integer> cycleDeque = new ArrayDeque<>();
         plants.push(Integer.valueOf(inputPasticide[0]));
+
         int daysCounter = 0;
         for (int i = 1; i < plantsCount; i++) {
-
             if (Integer.parseInt(inputPasticide[i]) > plants.peek()) {
                 plants.push(Integer.valueOf(inputPasticide[i]));
-                daysCounter++;
-                plants.pop();
+                plantAboutToDie.addFirst(Integer.valueOf(inputPasticide[i]));
             } else {
                 plants.push(Integer.valueOf(inputPasticide[i]));
-                daysCounter--;
             }
         }
 
-        if (daysCounter == 0) {
-            daysCounter = 1;
-        }
-        System.out.println(daysCounter);
+        do {
+            int reShuffle = 0;
+            for (Integer plant : plants) {
+
+                if (plant.equals(plantAboutToDie.peek())) {
+                    plantAboutToDie.remove();
+                    plants.pop();
+                } else if (!plantAboutToDie.isEmpty()) {
+                    reShuffle = plants.pop();
+                    if (cycleDeque.isEmpty()) {
+                        cycleDeque.add(reShuffle);
+                    } else if (reShuffle < cycleDeque.peek()) {
+                        cycleDeque.addLast(reShuffle);
+                        if (!plantAboutToDie.peek().equals(cycleDeque.peek())) {
+                            plantAboutToDie.addLast(cycleDeque.peek());
+                        }
+                    } else {
+                        cycleDeque.addFirst(reShuffle);
+                    }
+                } else {
+                    if (plantAboutToDie.size() == 0) {
+                        daysCounter++;
+                    }
+
+                    plants.pop();
+                }
+            }
+            if (plants.size() == 0) {
+                plants = cycleDeque;
+            }
+
+        } while (!plantAboutToDie.isEmpty());
+
+        System.out.println(daysCounter - 1);
 
     }
 }
