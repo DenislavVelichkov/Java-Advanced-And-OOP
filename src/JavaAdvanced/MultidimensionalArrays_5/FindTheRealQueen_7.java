@@ -9,8 +9,6 @@ public class FindTheRealQueen_7 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        boolean isItValidQueen = false;
-
         String[][] board = new String[SIZE][SIZE];
 
         for (int row = 0; row < SIZE; row++) {
@@ -21,7 +19,7 @@ public class FindTheRealQueen_7 {
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[i].length; j++) {
                 if (board[i][j].equals(QUEEN)) {
-                    isItValidQueen = checkForValidQueen(board, i, j);
+                  boolean isItValidQueen = checkForValidQueen(board, i, j);
                     if (isItValidQueen) {
                         System.out.println(i + " " + j);
                         return;
