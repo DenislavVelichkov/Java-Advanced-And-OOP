@@ -33,11 +33,20 @@ public class FilltheMatrix_1 {
     }
 
     private static int[][] patternB(int[][] matrix) {
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[i].length; j++) {
+        int numberCounter = 1;
+        for (int i = 0, j = 0; i < matrix.length && j < matrix.length; i++) {
+            matrix[i][j] = numberCounter++;
+            if (i == matrix.length - 1 && j != matrix.length - 1) {
+                j++;
+                while (i != -1) {
+                    matrix[i][j] = numberCounter++;
+                    i--;
+                }
 
+                j++;
             }
         }
+
         return matrix;
     }
 
@@ -47,7 +56,7 @@ public class FilltheMatrix_1 {
             matrix[i][j] = numberCounter++;
             if (i == matrix.length - 1) {
                 j++;
-                i = 0;
+                i = -1;
             }
         }
 
