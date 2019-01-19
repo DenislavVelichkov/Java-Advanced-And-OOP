@@ -28,7 +28,7 @@ public class MaximumSumOf2x2Submatrix_5 {
         for (int row = 0; row < size[0] - 1; row++) {
             for (int col = 0; col < size[1] - 1; col++) {
                int matrixSum = calcMatrixSum(matrix, row, col);
-                if (matrixSum >= maxValue) {
+                if (matrixSum > maxValue) {
                     maxValue = matrixSum;
                     maxRow = row;
                     maxCol = col;
