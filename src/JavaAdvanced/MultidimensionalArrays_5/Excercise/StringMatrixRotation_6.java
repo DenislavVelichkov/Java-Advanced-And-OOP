@@ -43,14 +43,14 @@ public class StringMatrixRotation_6 {
             }
         }
 
-        int sizeX = 0;
-        int sizeY = 0;
+        int sizeX;
+        int sizeY;
         switch (degrees) {
             case 90:
                 sizeX = longestElement[0].length();
                 sizeY = rows.size();
-                matrix = rotateMatrix90(matrix, sizeX, sizeY);
-                printMatrix(matrix);
+                String[][] matrix90 = rotateMatrix90(matrix, sizeX, sizeY);
+                printMatrix(matrix90);
                 break;
             case 180:
 
@@ -60,8 +60,8 @@ public class StringMatrixRotation_6 {
                 break;
             case 360:
                 sizeY = longestElement[0].length();
-                matrix = rotateMatrix360(matrix, rows, sizeY);
-                printMatrix(matrix);
+                String[][] matrix360 = rotateMatrix360(matrix, rows, sizeY);
+                printMatrix(matrix360);
                 break;
             default:
                 break;
@@ -82,32 +82,8 @@ public class StringMatrixRotation_6 {
         return matrix;
     }
 
-    private static String[][] rotateMatrix90(String[][] matrix90, int sizeX, int sizeY) {
-
-        for (int x = 0; x < Math.ceil(sizeX / 2); x++)
-        {
-            // Consider elements in group of 4 in
-            // current square
-            for (int y = x; y < sizeY-x-1; y++)
-            {
-                // store current cell in temp variable
-                String temp = matrix90[x][y];
-
-                // move values from right to top
-                matrix90[x][y] = matrix90[y][sizeX-1-x];
-
-                // move values from bottom to right
-                matrix90[y][sizeX-1-x] = matrix90[sizeX-1-x][sizeX-1-y];
-
-                // move values from left to bottom
-                matrix90[sizeX-1-x][sizeX-1-y] = matrix90[sizeX-1-y][x];
-
-                // assign temp to left
-                matrix90[sizeX-1-y][x] = temp;
-            }
-        }
-
-        return matrix90;
+    private static String[][] rotateMatrix90(String[][] matrix, int sizeX, int sizeY) {
+      return matrix;
     }
 
     private static String fixRows(char[] arr, int y) {
