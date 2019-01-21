@@ -83,6 +83,11 @@ public class StringMatrixRotation_6 {
     }
 
     private static String[][] rotateMatrix90(String[][] matrix, int sizeX, int sizeY) {
+        String[][] tempMatrix = new String[sizeX][sizeY];
+        int rows = (int) Math.ceil(sizeX / 2);
+        for (int i = 0; i < Math.ceil(sizeX / 2); i++) {
+            
+        }
       return matrix;
     }
 
