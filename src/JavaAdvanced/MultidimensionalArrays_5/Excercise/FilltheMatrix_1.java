@@ -23,7 +23,7 @@ public class FilltheMatrix_1 {
 
     }
 
-    private static void printMatrix(int[][] pattern) {
+    private static void printMatrix(int[][] pattern) { //print matrix
         for (int i = 0; i < pattern.length; i++) {
             for (int j = 0; j < pattern[i].length; j++) {
                 System.out.print(pattern[i][j] + " ");
