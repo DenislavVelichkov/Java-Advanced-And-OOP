@@ -26,6 +26,7 @@ public class demo {
 
             line = sc.nextLine();
         }
+
         if (parkingLot.isEmpty()) {
             System.out.println("Parking Lot is Empty");
         } else {
