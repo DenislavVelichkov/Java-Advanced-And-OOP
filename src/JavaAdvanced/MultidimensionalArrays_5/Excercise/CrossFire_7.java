@@ -23,7 +23,7 @@ public class CrossFire_7 {
         String input = sc.nextLine();
 
         while (!input.equals("Nuke it from orbit")) {
-            int[]coordinates = Arrays.stream(sc.nextLine().split("\\s+"))
+            int[]coordinates = Arrays.stream(input.split("\\s+"))
                     .mapToInt(Integer::parseInt)
                     .toArray();
 
@@ -41,16 +41,21 @@ public class CrossFire_7 {
     private static void printMatrix(List<Integer> rows,
                                     int row,
                                     int col,
+                                    int radius,
                                     int x,
-                                    int y,
-                                    int radius) {
+                                    int y) {
         int[][] matrix = new int[x][y];
         int elementIndex = 0;
+
+        while (true) {
+
+        }
+
         for (int r = 0; r < x; r++) {
             for (int c = 0; c < y; c++) {
 //                int positionOfElement = row * col;
-                matrix[x][y] = rows.get(elementIndex++);
-                System.out.print(matrix[x][y] + " ");
+                matrix[r][c] = rows.get(elementIndex++);
+                System.out.print(matrix[r][c] + " ");
             }
             System.out.println();
         }
