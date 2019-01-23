@@ -1,9 +1,6 @@
 package JavaAdvanced.MultidimensionalArrays_5.Excercise;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class CrossFire_7 {
     public static void main(String[] args) {
@@ -14,11 +11,14 @@ public class CrossFire_7 {
                 .toArray();
 
 
-        List<Integer> rows = new ArrayList<>();
+        Map<Integer, ArrayList<Integer>> rows = new LinkedHashMap<>();
+        int element = 1;
 
-        for (int i = 1; i <= dimensions[0] * dimensions[1]; i++) {
-            rows.add(i);
+        for (int i = 0; i < dimensions[0] * dimensions[1]; i++) {
+            rows.putIfAbsent(i, new ArrayList<>());
+            rows.get(i).add(element++);
         }
+
 
         String input = sc.nextLine();
 
@@ -38,26 +38,15 @@ public class CrossFire_7 {
 
     }
 
-    private static void printMatrix(List<Integer> rows,
+    private static void printMatrix(Map<Integer, ArrayList<Integer>> rows,
                                     int row,
                                     int col,
                                     int radius,
                                     int x,
                                     int y) {
-        int[][] matrix = new int[x][y];
         int elementIndex = 0;
 
-        while (true) {
 
-        }
 
-        for (int r = 0; r < x; r++) {
-            for (int c = 0; c < y; c++) {
-//                int positionOfElement = row * col;
-                matrix[r][c] = rows.get(elementIndex++);
-                System.out.print(matrix[r][c] + " ");
-            }
-            System.out.println();
-        }
     }
 }
