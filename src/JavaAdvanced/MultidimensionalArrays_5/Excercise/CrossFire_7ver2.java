@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
 
-public class CrossFire_7 {
+public class CrossFire_7ver2 {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
@@ -16,12 +16,16 @@ public class CrossFire_7 {
         Map<Integer, ArrayList<String>> rows = new TreeMap<>();
         int element = 1;
 
-        for (int i = 0; i < dimensions[0]; i++) {
+        for (int i = 0; i < Math.abs(dimensions[0]) ; i++) {
             rows.putIfAbsent(i, new ArrayList<>());
+            StringBuilder joinStr = new StringBuilder();
 
-            for (int col = 0; col < dimensions[1]; col++) {
-                String elementToAdd = "" + element++;
-                rows.get(i).add(elementToAdd);
+            while (rows.get(i).size() < Math.abs(dimensions[1])) {
+//                String elementToAdd = "" + element++;
+                joinStr.append(element);
+                rows.get(i).add(joinStr.toString());
+                element++;
+                joinStr = new StringBuilder();
             }
 
         }
@@ -34,9 +38,9 @@ public class CrossFire_7 {
                     .mapToInt(Integer::parseInt)
                     .toArray();
 
-            int row = coordinates[0];
-            int col = coordinates[1];
-            int radius = coordinates[2];
+            int row = Math.abs(coordinates[0]);
+            int col = Math.abs(coordinates[1]);
+            int radius = Math.abs(coordinates[2]);
 
             rowsAfterCrossfire = crossfire(rows, row, col, radius);
 
@@ -45,13 +49,9 @@ public class CrossFire_7 {
 
         StringBuilder matrix = new StringBuilder();
 
-        for (int row = 0; row < rowsAfterCrossfire.size(); row++) {
-            for (int col = 0; col < rowsAfterCrossfire.get(row).size(); col++) {
-                if (col == rowsAfterCrossfire.get(row).size() - 1) {
-                    matrix.append(rowsAfterCrossfire.get(row).get(col));
-                } else {
-                    matrix.append(rowsAfterCrossfire.get(row).get(col)).append(" ");
-                }
+        for (int i = 0; i < rowsAfterCrossfire.size(); i++) {
+            for (int j = 0; j < rowsAfterCrossfire.get(i).size(); j++) {
+                matrix.append(rowsAfterCrossfire.get(i).get(j)).append(" ");
             }
             System.out.println(matrix.toString());
             matrix = new StringBuilder();
@@ -63,29 +63,37 @@ public class CrossFire_7 {
               int row,
               int col,
               int radius) {
-
         Deque<String> queue = new ArrayDeque<>();
 
-        for (int r = row - radius; r <= row + radius; r++) {
-            if (matrixRange(rows, r, col)) {
-                queue.push(rows.get(r).get(col));
-            }
-        }
+        while (radius > 0) {
+            try {
+                queue.push(rows.get(row - radius).get(col));
+            } catch (Exception ignored) { }
 
-        for (int c = col - radius; c <= col + radius; c++) {
-            if (matrixRange(rows, row, c)) {
-                queue.push(rows.get(row).get(c));
-            }
+            try {
+                queue.push(rows.get(row + radius).get(col));
+            } catch (Exception ignored) { }
+
+            try {
+                queue.push(rows.get(row).get(col + radius));
+            } catch (Exception ignored) { }
+
+            try {
+                queue.push(rows.get(row).get(col - radius));
+            } catch (Exception ignored) { }
+
+            radius--;
         }
+        try {
+            queue.push(rows.get(row).get(col));
+        } catch (Exception ignored) { }
+
         while (!queue.isEmpty()) {
             String toPop = queue.pop();
-            rows.values().forEach(element -> element.remove(toPop));
+            rows.values()
+                    .forEach(strings -> strings.remove(toPop));
         }
 
         return rows;
-    }
-
-    private static boolean matrixRange(Map<Integer, ArrayList<String>> rows, int row, int col) {
-        return row >= 0 && row < rows.size() && col >= 0 && col < rows.get(row).size();
     }
 }
