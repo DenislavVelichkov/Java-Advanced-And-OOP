@@ -87,7 +87,7 @@ public class CrossFire_7 {
         while (!queue.isEmpty()) {
             String toPop = queue.pop();
             rows.values()
-                    .forEach(strings -> strings.remove(toPop));
+                    .forEach(element -> element.remove(toPop));
         }
 
         return rows;
