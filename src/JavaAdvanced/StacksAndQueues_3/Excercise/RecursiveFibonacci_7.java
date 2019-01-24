@@ -13,18 +13,18 @@ public class RecursiveFibonacci_7 {
         System.out.println(fibResult);
     }
 
-    private static long calculateFibonacci(int n, long[] memmory) {
+    private static long calculateFibonacci(int n, long[] memory) {
         if (n == 0 || n == 1) {
             return 1;
         }
-        if (memmory[n] != 0) { //memorization
-            return memmory[n];
+        if (memory[n] != 0) { //memorization
+            return memory[n];
         }
 
-        long prev = calculateFibonacci(n - 1, memmory);
-        long prevPrev = calculateFibonacci(n - 2, memmory);
+        long prev = calculateFibonacci(n - 1, memory);
+        long prevPrev = calculateFibonacci(n - 2, memory);
         long result = prev + prevPrev;
-        memmory[n] = result;
+        memory[n] = result;
         return result;
     }
 }
