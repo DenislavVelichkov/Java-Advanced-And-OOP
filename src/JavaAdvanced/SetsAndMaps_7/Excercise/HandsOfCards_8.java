@@ -92,7 +92,7 @@ public class HandsOfCards_8 {
                     break;
             }
 
-            switch (card.charAt(card.length()) - 1) {
+            switch (card.charAt(card.length()- 1)) {
                 case 'S':
                     currentCardPower *= 4;
                     break;
@@ -105,7 +105,7 @@ public class HandsOfCards_8 {
 
             }
 
-            power = currentCardPower;
+            power += currentCardPower;
         }
 
         return power;
