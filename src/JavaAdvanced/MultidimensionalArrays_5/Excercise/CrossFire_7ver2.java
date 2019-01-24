@@ -9,91 +9,49 @@ public class CrossFire_7ver2 {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-        int[] dimensions = Arrays.stream(reader.readLine().split("\\s+"))
-                .mapToInt(Integer::parseInt)
-                .toArray();
+        int[] dimensions = Arrays.stream(reader.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
+        List<List<Integer>> matrix = new ArrayList<>();
 
-        Map<Integer, ArrayList<String>> rows = new TreeMap<>();
-        int element = 1;
-
-        for (int i = 0; i < Math.abs(dimensions[0]) ; i++) {
-            rows.putIfAbsent(i, new ArrayList<>());
-            StringBuilder joinStr = new StringBuilder();
-
-            while (rows.get(i).size() < Math.abs(dimensions[1])) {
-//                String elementToAdd = "" + element++;
-                joinStr.append(element);
-                rows.get(i).add(joinStr.toString());
-                element++;
-                joinStr = new StringBuilder();
+        int count = 1;
+        for (int i = 0; i < dimensions[0]; i++) {
+            matrix.add(new ArrayList<>());
+            for (int j = 0; j < dimensions[1]; j++) {
+                matrix.get(i).add(count++);
             }
-
         }
 
-        String input = reader.readLine();
-        Map<Integer, ArrayList<String>> rowsAfterCrossfire = new TreeMap<>();
+        String input;
+        while (!"Nuke it from orbit".equals(input = reader.readLine())) {
+            int[] data = Arrays.stream(input.split(" ")).mapToInt(Integer::parseInt).toArray();
 
-        while (!input.equals("Nuke it from orbit")) {
-            int[] coordinates = Arrays.stream(input.split("\\s+"))
-                    .mapToInt(Integer::parseInt)
-                    .toArray();
+            int row = data[0];
+            int col = data[1];
+            int radius = data[2];
 
-            int row = Math.abs(coordinates[0]);
-            int col = Math.abs(coordinates[1]);
-            int radius = Math.abs(coordinates[2]);
+            for (int i = row - radius; i <= row + radius; i++) {
+                if (isInRange(i, col, matrix) && i != row) {
+                    matrix.get(i).remove(col);
+                }
+            }
 
-            rowsAfterCrossfire = crossfire(rows, row, col, radius);
+            for (int i = col + radius; i >= col - radius; i--) {
+                if (isInRange(row, i, matrix)) {
+                    matrix.get(row).remove(i);
+                }
+            }
 
-            input = reader.readLine();
+            matrix.removeIf(List::isEmpty);
         }
 
-        StringBuilder matrix = new StringBuilder();
-
-        for (int i = 0; i < rowsAfterCrossfire.size(); i++) {
-            for (int j = 0; j < rowsAfterCrossfire.get(i).size(); j++) {
-                matrix.append(rowsAfterCrossfire.get(i).get(j)).append(" ");
+        for (List<Integer> integers : matrix) {
+            for (Integer integer : integers) {
+                System.out.print(integer + " ");
             }
-            System.out.println(matrix.toString());
-            matrix = new StringBuilder();
+            System.out.println();
         }
     }
 
-    private static Map<Integer, ArrayList<String>>
-    crossfire(Map<Integer, ArrayList<String>> rows,
-              int row,
-              int col,
-              int radius) {
-        Deque<String> queue = new ArrayDeque<>();
-
-        while (radius > 0) {
-            try {
-                queue.push(rows.get(row - radius).get(col));
-            } catch (Exception ignored) { }
-
-            try {
-                queue.push(rows.get(row + radius).get(col));
-            } catch (Exception ignored) { }
-
-            try {
-                queue.push(rows.get(row).get(col + radius));
-            } catch (Exception ignored) { }
-
-            try {
-                queue.push(rows.get(row).get(col - radius));
-            } catch (Exception ignored) { }
-
-            radius--;
-        }
-        try {
-            queue.push(rows.get(row).get(col));
-        } catch (Exception ignored) { }
-
-        while (!queue.isEmpty()) {
-            String toPop = queue.pop();
-            rows.values()
-                    .forEach(strings -> strings.remove(toPop));
-        }
-
-        return rows;
+    private static boolean isInRange(int row, int col, List<List<Integer>> matrix) {
+        return row >= 0 && row < matrix.size() && col >= 0 && col < matrix.get(row).size();
     }
 }
