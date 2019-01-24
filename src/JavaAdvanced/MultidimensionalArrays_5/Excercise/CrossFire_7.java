@@ -34,8 +34,8 @@ public class CrossFire_7 {
                     .mapToInt(Integer::parseInt)
                     .toArray();
 
-            int row = coordinates[0];
-            int col = coordinates[1];
+            int row = Math.abs(coordinates[0]);
+            int col = Math.abs(coordinates[1]);
             int radius = coordinates[2];
 
             rowsAfterCrossfire = crossfire(rows, row, col, radius);
@@ -75,8 +75,10 @@ public class CrossFire_7 {
         for (int c = col - radius; c <= col + radius; c++) {
             if (matrixRange(rows, row, c)) {
                 queue.push(rows.get(row).get(c));
+
             }
         }
+
         while (!queue.isEmpty()) {
             String toPop = queue.pop();
             rows.values().forEach(element -> element.remove(toPop));
