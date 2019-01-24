@@ -34,8 +34,8 @@ public class CrossFire_7 {
                     .mapToInt(Integer::parseInt)
                     .toArray();
 
-            int row = Math.abs(coordinates[0]);
-            int col = Math.abs(coordinates[1]);
+            int row = coordinates[0];
+            int col = coordinates[1];
             int radius = coordinates[2];
 
             rowsAfterCrossfire = crossfire(rows, row, col, radius);
