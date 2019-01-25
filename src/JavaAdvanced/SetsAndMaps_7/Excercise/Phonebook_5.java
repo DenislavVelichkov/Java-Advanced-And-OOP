@@ -1,6 +1,5 @@
 package JavaAdvanced.SetsAndMaps_7.Excercise;
 
-import javax.print.DocFlavor;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
