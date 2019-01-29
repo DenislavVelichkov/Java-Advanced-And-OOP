@@ -10,7 +10,10 @@ import java.nio.file.Paths;
 public class SumLines_1 {
 
     public static void main(String[] args) throws IOException {
-        BufferedReader reader = Files.newBufferedReader(Paths.get("D:\\SoftUni\\Advanced Modules\\Java Fundamentals\\Java Advanced Source Code\\src\\JavaAdvanced\\StreamsFilesAndDirectories_9\\Exercise\\input.txt"));
+        BufferedReader reader = Files.newBufferedReader(
+                Paths.get("D:\\SoftUni\\Advanced Modules\\Java Fundamentals\\" +
+                        "Java Advanced Source Code\\src\\JavaAdvanced\\StreamsFilesAndDirectories_9\\" +
+                        "Exercise\\input.txt"));
 
         String line = reader.readLine();
 
