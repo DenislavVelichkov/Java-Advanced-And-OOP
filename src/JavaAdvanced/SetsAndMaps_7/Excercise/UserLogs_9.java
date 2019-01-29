@@ -1,4 +1,4 @@
-package JavaAdvanced.SetsAndMaps_7.Excercise;
+package JavaAdvanced.SetsAndMaps_7.Exercise;
 
 import java.util.Scanner;
 

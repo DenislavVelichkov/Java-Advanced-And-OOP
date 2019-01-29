@@ -1,4 +1,4 @@
-package JavaAdvanced.StreamsFilesAndDirectories_9.Excercise;
+package JavaAdvanced.StreamsFilesAndDirectories_9.Exercise;
 
 import java.io.*;
 

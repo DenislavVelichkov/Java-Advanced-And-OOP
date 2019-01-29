@@ -1,4 +1,4 @@
-package JavaAdvanced.MultidimensionalArrays_5.Excercise;
+package JavaAdvanced.MultidimensionalArrays_5.Exercise;
 
 import java.io.BufferedReader;
 import java.io.IOException;
