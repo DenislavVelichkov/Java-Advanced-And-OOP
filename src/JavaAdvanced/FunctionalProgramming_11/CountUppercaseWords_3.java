@@ -23,7 +23,7 @@ public class CountUppercaseWords_3 {
 
         System.out.println(capitalWords.size());
         capitalWords
-                .forEach(x -> System.out.printf("%s\n", x));
+                .forEach(x -> System.out.printf("%s%n", x));
 
     }
 }

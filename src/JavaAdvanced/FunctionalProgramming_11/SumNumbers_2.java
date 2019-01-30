@@ -25,6 +25,6 @@ public class SumNumbers_2 {
         int sum = numbers.stream()
                 .reduce(0, (a, b) -> a + b);
 
-        System.out.println("Sum= " + sum);
+        System.out.println("Sum = " + sum);
     }
 }
