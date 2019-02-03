@@ -1,12 +1,8 @@
 package JavaAdvanced.StreamsFilesAndDirectories_9.Exercise;
 
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.attribute.FileOwnerAttributeView;
 
-public class SumLines_1 {
-
+public class SumLinesAndWriteToFile_1 {
     public static void main(String[] args) throws IOException {
         FileInputStream inputStream = new FileInputStream(
                 "D:\\SoftUni\\Advanced Modules\\Java Fundamentals\\" +
@@ -25,8 +21,11 @@ public class SumLines_1 {
             for (char c : line.toCharArray()) {
                 sum += c;
             }
+            //записване във файл
             writer.write(sum + System.lineSeparator()); // заради рализкзата в OS и това как четат новите редове
             line = reader.readLine();
+
+            writer.close();
         }
     }
 }
