@@ -1,19 +1,18 @@
 package JavaAdvanced.StreamsFilesAndDirectories_9.Exercise;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public class SumLines_1 {
 
     public static void main(String[] args) throws IOException {
-        BufferedReader reader = Files.newBufferedReader(
-                Paths.get("D:\\SoftUni\\Advanced Modules\\Java Fundamentals\\" +
-                        "Java Advanced Source Code\\src\\JavaAdvanced\\StreamsFilesAndDirectories_9\\" +
-                        "Exercise\\input.txt"));
+        FileInputStream inputStream = new FileInputStream(
+                "D:\\SoftUni\\Advanced Modules\\Java Fundamentals\\" +
+                        "Java Advanced Source Code\\src\\JavaAdvanced\\" +
+                        "StreamsFilesAndDirectories_9\\Exercise\\input.txt");
+
+        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream)); // read the file
 
         String line = reader.readLine();
 
