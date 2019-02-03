@@ -1,23 +1,30 @@
 package JavaAdvanced.StreamsFilesAndDirectories_9.Exercise;
 
 import java.io.*;
+import java.util.Arrays;
+import java.util.Objects;
 
 public class GetFolderSize_8 {
 
     public static void main(String[] args) throws IOException {
-        FileWriter writer = new FileWriter("folderSize.txt");
-        File file = new File("D:\\SoftUni\\Advanced Modules\\Java Fundamentals\\Java Advanced\\Streams,Files and Directories-09\\Exercise\\04. Java-Advanced-Files-and-Streams-Exercises-Resources\\04. Java-Advanced-Files-and-Streams-Exercises-Resources\\Exercises Resources");
-        /*Arrays.stream(file.listFiles())
-                .filter(e -> e.isFile())
-                .*/
-        int sum = 0;
+//        FileWriter writer = new FileWriter("folderSize.txt"); // не добавя нов ред в новия файл
+        PrintWriter writer = new PrintWriter("folderSize.txt"); // добавя нов ред във файла
+        File file = new File("src\\JavaAdvanced\\StreamsFilesAndDirectories_9\\Exercise");
+
+        long sum = Arrays.stream(Objects.requireNonNull(file.listFiles()))// Folder Size
+                .filter(e -> !e.isDirectory())
+                .mapToLong(File::length)
+                .sum();
+        System.out.println(sum);
+
+        /*int sum = 0;
         for (File f : file.listFiles()) {
             if (f.isFile()) {
                 sum += f.length();
             }
         }
 
-        writer.write(String.valueOf(sum));
-        writer.close();
+        writer.printLn(sum + "");
+        writer.close();*/
     }
 }
