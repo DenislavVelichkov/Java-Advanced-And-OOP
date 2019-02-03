@@ -24,8 +24,8 @@ public class SumLinesAndWriteToFile_1 {
             //записване във файл
             writer.write(sum + System.lineSeparator()); // заради рализкзата в OS и това как четат новите редове
             line = reader.readLine();
-
-            writer.close();
         }
+
+        writer.close();
     }
 }
