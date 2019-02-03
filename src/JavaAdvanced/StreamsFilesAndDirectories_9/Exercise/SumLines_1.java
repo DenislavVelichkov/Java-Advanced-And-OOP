@@ -3,7 +3,6 @@ package JavaAdvanced.StreamsFilesAndDirectories_9.Exercise;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.nio.file.attribute.FileOwnerAttributeView;
 
 public class SumLines_1 {
 
@@ -17,15 +16,13 @@ public class SumLines_1 {
 
         String line = reader.readLine();
 
-        FileWriter writer = new FileWriter("sumLines.txt");
-
         while (line != null) {
             int sum = 0;
 
             for (char c : line.toCharArray()) {
                 sum += c;
             }
-            writer.write(sum + System.lineSeparator()); // заради рализкзата в OS и това как четат новите редове
+            System.out.println(sum);
             line = reader.readLine();
         }
     }
