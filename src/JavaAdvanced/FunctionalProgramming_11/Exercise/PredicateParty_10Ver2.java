@@ -54,6 +54,7 @@ public class PredicateParty_10Ver2 {
         } else if (cmd.equals("Length")) {
             mainPredicate = length;
         }
+
         ArrayDeque<Integer> stack = new ArrayDeque<>();
         if (mainCmd.equals("Double")) {
             for (int i = 0; i < names.size(); i++) {
