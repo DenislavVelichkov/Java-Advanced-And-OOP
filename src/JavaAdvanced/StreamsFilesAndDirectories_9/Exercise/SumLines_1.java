@@ -12,7 +12,7 @@ public class SumLines_1 {
                         "Java Advanced Source Code\\src\\JavaAdvanced\\" +
                         "StreamsFilesAndDirectories_9\\Exercise\\input.txt");
 
-        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream)); // read the file
+        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream)); // read file
 
         String line = reader.readLine();
 
