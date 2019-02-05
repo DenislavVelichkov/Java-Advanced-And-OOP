@@ -36,7 +36,7 @@ public class Main {
                 case "company":
                     person.companyName = data[2];
                     person.department = data[3];
-                    person.salary = Double.parseDouble(data[4]);
+                    person.salary = data[4];
                     break;
                 case "car":
                     person.carModel = data[2];
@@ -60,5 +60,25 @@ public class Main {
 
             line = reader.readLine();
         }
+
+        line = reader.readLine();
+
+        Person searchPerson = getPerson.apply(peopleList, line);
+
+        System.out.println(searchPerson.name);
+        System.out.println("Company:");
+        System.out.printf("%s %s %s%n", searchPerson.companyName, searchPerson.department, searchPerson.salary);
+        System.out.println("Car:");
+        System.out.print(searchPerson.carModel + " ");
+        System.out.println(searchPerson.carSpeed);
+        System.out.println("Pokemon:");
+        searchPerson.pokemonCollection.forEach(pokemon -> System.out.printf(
+                "%s %s%n", pokemon.getName(), pokemon.getType()));
+        System.out.println("Parents:");
+        searchPerson.parents.forEach(parent -> System.out.printf(
+                "%s %s%n", parent.getName(), parent.getBirthday()));
+        System.out.println("Children:");
+        searchPerson.children.forEach(child -> System.out.printf(
+                "%s %s%n", child.getName(), child.getBirthday()));
     }
 }

@@ -6,9 +6,9 @@ public class Person {
     public String name;
     public String carModel;
     public int carSpeed;
-    public String companyName;
-    public String department;
-    public double salary;
+    public String companyName = "";
+    public String department = "";
+    public String salary = "";
     public ArrayList<Pokemon> pokemonCollection;
     public ArrayList<Parent> parents;
     public ArrayList<Child> children;
