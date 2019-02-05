@@ -38,12 +38,6 @@ public class Main {
             Trainer trainer = new Trainer(trainerName);
             Pokemon pokemon = new Pokemon(pokemonName, pokemonElement, pokemonHealth);
 
-            if (trainersList.isEmpty()) {
-                trainer.addPokemon(pokemon);
-                trainersList.add(trainer);
-                line = reader.readLine();
-                continue;
-            }
             if (!testForUniqueTrainer.test(trainersList, trainerName)) {
                 trainer.addPokemon(pokemon);
                 trainersList.add(trainer);

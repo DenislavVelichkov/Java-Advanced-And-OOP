@@ -12,10 +12,8 @@ public class LinkedList {
     }
 
     public void addFirst(int elem) {
-        Node node = new Node();
 
-        if (node) {
-        }
+
     }
 
     public Node getHead() {
