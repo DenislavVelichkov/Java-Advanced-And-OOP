@@ -20,8 +20,6 @@ public class Main {
                         .stream()
                         .anyMatch(person -> person.name.equals(name));
 
-
-
         BiFunction<ArrayList<Person>, String, Person> getPerson =
                 (people, name) -> people
                         .stream()
@@ -31,7 +29,6 @@ public class Main {
 
         while (!line.equals("End")) {
             String[] data = line.split("\\s+");
-
             Person person = new Person();
 
             if (!isPersonUnique.test(peopleList, data[0])) {
@@ -43,7 +40,8 @@ public class Main {
             switch (data[1]) {
                 case "company":
                     if (person.company == null) {
-                        person.company = new Company(data[2], data[3], Double.parseDouble(data[4]));
+                        person.company = new Company(
+                                data[2], data[3], Double.parseDouble(data[4]));
                     } else {
                         person.company.name = data[2];
                         person.company.department = data[3];
@@ -73,7 +71,6 @@ public class Main {
             }
 
             peopleList.add(person);
-
             line = reader.readLine();
         }
 
