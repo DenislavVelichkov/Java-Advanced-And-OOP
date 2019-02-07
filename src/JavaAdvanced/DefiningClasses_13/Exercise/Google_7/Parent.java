@@ -16,4 +16,9 @@ public class Parent {
     public String getBirthday() {
         return birthday;
     }
+
+    @Override
+    public String toString() {
+        return String.join(" ", this.name, this.birthday);
+    }
 }
