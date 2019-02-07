@@ -3,15 +3,14 @@ package JavaAdvanced.DefiningClasses_13.Exercise.CompanyRoster_2;
 public class Employee {
     private String name;
     private double salary;
-    private String position;
+    private String email;
+    private int age;
 
-    private String email = "n/a";
-    private int age = -1;
-
-    public Employee(String name, double salary, String position) {
+    public Employee(String name, double salary) {
         this.name = name;
         this.salary = salary;
-        this.position = position;
+        this.email = "n/a";
+        this.age = -1;
     }
 
     public String getName() {
@@ -24,18 +23,6 @@ public class Employee {
 
     public double getSalary() {
         return salary;
-    }
-
-    public void setSalary(double salary) {
-        this.salary = salary;
-    }
-
-    public String getPosition() {
-        return position;
-    }
-
-    public void setPosition(String position) {
-        this.position = position;
     }
 
     public String getEmail() {

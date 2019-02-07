@@ -28,10 +28,6 @@ public class Department {
         return employees;
     }
 
-    public void setEmployees(List<Employee> employees) {
-        this.employees = employees;
-    }
-
     public void addEmployee(Employee e){
         this.employees.add(e);
     }
