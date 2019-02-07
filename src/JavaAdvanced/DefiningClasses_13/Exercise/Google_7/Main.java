@@ -6,8 +6,6 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.function.BiFunction;
 import java.util.function.BiPredicate;
-import java.util.function.Consumer;
-import java.util.function.Function;
 
 public class Main {
 
@@ -21,6 +19,8 @@ public class Main {
                 (people, name) -> people
                         .stream()
                         .anyMatch(person -> person.name.equals(name));
+
+
 
         BiFunction<ArrayList<Person>, String, Person> getPerson =
                 (people, name) -> people
@@ -36,7 +36,6 @@ public class Main {
 
             if (!isPersonUnique.test(peopleList, data[0])) {
                 person.name = data[0];
-                peopleList.add(person);
             } else {
                 person = getPerson.apply(peopleList, data[0]);
             }
@@ -44,12 +43,19 @@ public class Main {
             switch (data[1]) {
                 case "company":
                     if (person.company == null) {
-                        person.company = new Company(data[2], data[3], data[4]);
+                        person.company = new Company(data[2], data[3], Double.parseDouble(data[4]));
+                    } else {
+                        person.company.name = data[2];
+                        person.company.department = data[3];
+                        person.company.salary= Double.parseDouble(data[4]);
                     }
                     break;
                 case "car":
                     if (person.car == null) {
-                        person.car = new Car(data[2], data[3]);
+                        person.car = new Car(data[2], Integer.parseInt(data[3]));
+                    } else {
+                        person.car.carModel = data[2];
+                        person.car.carSpeed = Integer.parseInt(data[3]) ;
                     }
                     break;
                 case "pokemon":
@@ -64,9 +70,9 @@ public class Main {
                     Child child = new Child(data[2], data[3]);
                     person.children.add(child);
                     break;
-                default:
-                    break;
             }
+
+            peopleList.add(person);
 
             line = reader.readLine();
         }

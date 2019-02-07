@@ -3,9 +3,9 @@ package JavaAdvanced.DefiningClasses_13.Exercise.Google_7;
 public class Company {
     public String name;
     public String department;
-    public String salary;
+    public double salary;
 
-    public Company(String name, String department, String salary) {
+    public Company(String name, String department, double salary) {
         this.name = name;
         this.department = department;
         this.salary = salary;
@@ -13,7 +13,7 @@ public class Company {
 
     @Override
     public String toString() {
-        return String.join(" ", this.name, this.department, this.salary);
+        return String.join(" ", this.name, this.department, String.format("%.2f",this.salary));
     }
 
 }
