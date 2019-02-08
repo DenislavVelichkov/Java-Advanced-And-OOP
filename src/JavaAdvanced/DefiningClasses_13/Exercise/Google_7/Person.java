@@ -76,7 +76,6 @@ public class Person {
         }
 
         String result = line.toString();
-
         return result.trim();
     }
 }
