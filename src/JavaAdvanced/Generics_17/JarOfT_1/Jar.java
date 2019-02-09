@@ -1,10 +1,9 @@
 package JavaAdvanced.Generics_17.JarOfT_1;
 
 import java.util.ArrayDeque;
-import java.util.Deque;
 
-public class Jar <T>{
-    private Deque<T> content;
+public class Jar<T> {
+    private ArrayDeque<T> content;
 
     public Jar() {
         this.content = new ArrayDeque<>();
