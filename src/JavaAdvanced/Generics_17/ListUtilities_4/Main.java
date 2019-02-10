@@ -8,11 +8,12 @@ public class Main {
     public static void main(String[] args) {
         List<Integer> asd = new ArrayList<>();
         Collections.addAll(asd, 1, 2, 18, 2 - 1);
-        ListUtils.getMin(asd);
+        Integer min = ListUtils.getMin(asd);
+        System.out.println(min);
 
         List<String> dsa = new ArrayList<>();
         Collections.addAll(dsa, "aka", "bala", "mica");
-        ListUtils.getMax(dsa);
-
+        String max = ListUtils.getMax(dsa);
+        System.out.println(max);
     }
 }
