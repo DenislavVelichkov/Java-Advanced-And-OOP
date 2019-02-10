@@ -1,4 +1,4 @@
-package JavaAdvanced.Generics_17.Exercise.GenericCountMethodString_5;
+package JavaAdvanced.Generics_17.Exercise.GenericCountMethodDouble_6;
 
 import java.util.Scanner;
 
@@ -15,7 +15,7 @@ public class Main {
             box.add(toAdd);
         }
 
-        String toCompare = sc.nextLine();
+        double toCompare = Double.parseDouble(sc.nextLine());
         box.compare(box.getParams(), toCompare);
     }
 }
