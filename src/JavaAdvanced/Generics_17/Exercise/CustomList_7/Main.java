@@ -39,6 +39,10 @@ public class Main {
                     break;
                 case "Print":
                     System.out.println(list);
+                    break;
+                case "Sort":
+                    list.sort();
+                    break;
                 default:
                     break;
             }

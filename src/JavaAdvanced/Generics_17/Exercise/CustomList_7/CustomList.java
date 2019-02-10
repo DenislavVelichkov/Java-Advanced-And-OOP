@@ -1,6 +1,7 @@
 package JavaAdvanced.Generics_17.Exercise.CustomList_7;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class CustomList<T extends Comparable<T>> {
     private ArrayList<T> data;
@@ -45,6 +46,10 @@ public class CustomList<T extends Comparable<T>> {
 
     public T getMin() {
         return this.data.stream().min(Comparable::compareTo).get();
+    }
+
+    public void sort() {
+        Collections.sort(this.data);
     }
 
     @Override
