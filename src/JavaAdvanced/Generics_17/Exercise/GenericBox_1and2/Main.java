@@ -1,4 +1,4 @@
-package JavaAdvanced.Generics_17.Exercise.GenericBox_1;
+package JavaAdvanced.Generics_17.Exercise.GenericBox_1and2;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,12 +17,17 @@ public class Main {
             Box box = new Box<Integer>();
 
             try {
-                ArrayList temp = Arrays.stream(tokens).map(Integer::parseInt).collect(Collectors.toCollection(ArrayList::new));
+                ArrayList temp =
+                        Arrays.stream(tokens)
+                                .map(Integer::parseInt)
+                                .collect(Collectors.toCollection(ArrayList::new));
                 box.add(temp);
                 System.out.println(box);
             } catch (Exception e) {
                 box = new Box<String>();
-                ArrayList temp = Arrays.stream(tokens).collect(Collectors.toCollection(ArrayList::new));
+                ArrayList temp =
+                        Arrays.stream(tokens)
+                                .collect(Collectors.toCollection(ArrayList::new));
                 box.add(temp);
                 System.out.println(box);
             }

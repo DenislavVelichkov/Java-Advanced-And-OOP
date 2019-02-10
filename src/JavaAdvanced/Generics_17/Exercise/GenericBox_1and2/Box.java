@@ -1,4 +1,4 @@
-package JavaAdvanced.Generics_17.Exercise.GenericBox_1;
+package JavaAdvanced.Generics_17.Exercise.GenericBox_1and2;
 
 import java.util.ArrayList;
 
