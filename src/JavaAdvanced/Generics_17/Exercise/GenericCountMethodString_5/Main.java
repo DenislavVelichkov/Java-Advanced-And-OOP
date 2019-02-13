@@ -11,8 +11,8 @@ public class Main {
 
         while (n-- > 0) {
             String tokens = sc.nextLine();
-            double toAdd = Double.parseDouble(tokens);
-            box.add(toAdd);
+
+            box.add(tokens);
         }
 
         String toCompare = sc.nextLine();

@@ -22,8 +22,8 @@ public class Box<T extends Comparable<T>> { // означава Cmparable от �
         for (T param : arg) {
             if (param.compareTo(value) > 0) {
                 count++;
-                System.out.println(count);
             }
         }
+        System.out.println(count);
     }
 }
