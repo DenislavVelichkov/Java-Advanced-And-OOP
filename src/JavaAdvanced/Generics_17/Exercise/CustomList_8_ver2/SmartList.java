@@ -2,9 +2,10 @@ package JavaAdvanced.Generics_17.Exercise.CustomList_8_ver2;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 
-public class SmartList<T extends Comparable<T>> {
+public class SmartList<T extends Comparable<T>> implements Iterable<T> {
     private List<T> data;
 
     public SmartList() {
@@ -53,10 +54,16 @@ public class SmartList<T extends Comparable<T>> {
         Collections.sort(this.data);
     }
 
+    public int size() {
+        return this.data.size();
+    }
+
+    public T get(int index) {
+        return this.data.get(index);
+    }
+
     @Override
-    public String toString() {
-        StringBuilder str = new StringBuilder();
-        this.data.forEach(el -> str.append(el).append(System.lineSeparator()));
-        return str.toString().trim();
+    public Iterator<T> iterator() {
+        return this.data.iterator();
     }
 }

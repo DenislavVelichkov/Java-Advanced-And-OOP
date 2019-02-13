@@ -21,7 +21,9 @@ public class CommandParser {
                 System.out.println(this.smartList.contains(tokens[1]));
                 break;
             case "Swap":
-                this.smartList.swap(Integer.parseInt(tokens[1]), Integer.parseInt(tokens[2]));
+                this.smartList.swap(
+                        Integer.parseInt(tokens[1]),
+                        Integer.parseInt(tokens[2]));
                 break;
             case "Greater":
                 System.out.println(this.smartList.countGreaterThan(tokens[1]));
@@ -32,8 +34,13 @@ public class CommandParser {
             case "Min":
                 System.out.println(this.smartList.getMin());
                 break;
+            case "Sort":
+                Sorter.sort(this.smartList);
+                break;
             case "Print":
-                System.out.println(smartList);
+                for (String string : this.smartList) {
+                    System.out.println(string);
+                }
                 break;
         }
     }
