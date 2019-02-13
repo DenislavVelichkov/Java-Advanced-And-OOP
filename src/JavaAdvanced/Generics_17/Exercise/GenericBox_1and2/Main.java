@@ -29,9 +29,8 @@ public class Main {
                         Arrays.stream(tokens)
                                 .collect(Collectors.toCollection(ArrayList::new));
                 box.add(temp);
-                System.out.println(box);
             }
+            System.out.println(box);
         }
-
     }
 }

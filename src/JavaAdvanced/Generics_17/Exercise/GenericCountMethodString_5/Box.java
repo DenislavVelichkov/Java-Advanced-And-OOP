@@ -2,7 +2,7 @@ package JavaAdvanced.Generics_17.Exercise.GenericCountMethodString_5;
 
 import java.util.ArrayList;
 
-public class Box<T extends Comparable<T>> {
+public class Box<T extends Comparable<T>> { // означава Cmparable от себе си. <T extends Comparable<T>
     private ArrayList<T> params;
 
     Box() {
