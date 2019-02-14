@@ -1,5 +1,9 @@
 package JavaAdvanced.IteratorsAndComperators_19.Lab_Zad123;
 
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -7,10 +11,16 @@ public class Main {
         Book bookThree = new Book("The Documents in the Case", 2002);
         Book bookTwo = new Book("The Documents in the Case", 1930, "Dorothy Sayers", "Robert Eustace");
 
+        Library<Book> library = new Library<>(bookOne, bookTwo, bookThree);
 
-        Library library = new Library(bookOne, bookTwo, bookThree);
-        for (Book current : library) {
-            System.out.println(current.getTitle() + current.getYear());
+        List<Book> books = new ArrayList<>();
+        books.add(bookOne);
+        books.add(bookTwo);
+        books.add(bookThree);
+        books.sort(new BookComparator());
+
+        for (Book book : library) {
+            System.out.println(book.getTitle() + book.getYear());
         }
 
     }
