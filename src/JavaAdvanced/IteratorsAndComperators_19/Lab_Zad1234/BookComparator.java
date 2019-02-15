@@ -1,4 +1,4 @@
-package JavaAdvanced.IteratorsAndComperators_19.Lab_Zad123;
+package JavaAdvanced.IteratorsAndComperators_19.Lab_Zad1234;
 
 
 import java.util.Comparator;

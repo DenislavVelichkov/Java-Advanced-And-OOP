@@ -1,11 +1,10 @@
-package JavaAdvanced.IteratorsAndComperators_19.Lab_Zad123;
+package JavaAdvanced.IteratorsAndComperators_19.Lab_Zad1234;
 
 import java.util.Iterator;
 
-public class Library<Book> implements Iterable<Book> {
+public class Library implements Iterable<Book> {
     private Book[] books;
 
-    @SafeVarargs
     public Library(Book... books) {
         this.books = books;
     }
@@ -22,7 +21,10 @@ public class Library<Book> implements Iterable<Book> {
 
             @Override
             public Book next() {
-                return books[this.count++];
+                while (hasNext()) {
+                    return books[this.count++];
+                }
+                return null;
             }
         };
     }
