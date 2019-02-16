@@ -23,7 +23,14 @@ public class ListIterator implements Iterable<String> {
         }
     }
 
+    public boolean move() {
+        if (this.index < this.data.size() - 1) {
+            this.index++;
+            return true;
+        }
 
+        return false;
+    }
 
     public String print() {
         if (this.data.size() == 0) {
@@ -33,22 +40,24 @@ public class ListIterator implements Iterable<String> {
         return this.data.get(this.index);
     }
 
+    public boolean hasNext() {
+        return this.index < this.data.size() - 1;
+    }
+
     @Override
     public Iterator<String> iterator() {
 
-        return new Iterator<String>() {
+        return new Iterator<>() { // Можем да кажем и data.iterator(), защото под структрата от данни има List
+            private int index = 0;
+
             @Override
             public boolean hasNext() {
-                return index < data.size() - 1;
+                return this.index < data.size();
             }
 
             @Override
             public String next() {
-                if (index < data.size() - 1) {
-                    return data.get(index++);
-                } else {
-                    return data.get(index);
-                }
+                return data.get(this.index++);
             }
         };
     }

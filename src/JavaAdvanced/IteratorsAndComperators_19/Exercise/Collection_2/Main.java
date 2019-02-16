@@ -36,9 +36,14 @@ public class Main {
                         System.out.println(e.getMessage());
                     }
                     break;
+                case "PrintAll":
+                    for (String str : listIterator) {
+                        System.out.print(str + " ");
+                    }
+                    System.out.println();
+                    break;
                 default:
                     break;
-
             }
 
             line = sc.nextLine();
