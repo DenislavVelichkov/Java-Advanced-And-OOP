@@ -1,6 +1,6 @@
-package JavaAdvanced.IteratorsAndComperators_19.Exercise.ListyIterator_1;
+package JavaAdvanced.IteratorsAndComperators_19.Exercise.Collection_2;
 
-import JavaAdvanced.IteratorsAndComperators_19.Exercise.ListyIterator_1.ListIterator.ListIterator;
+import JavaAdvanced.IteratorsAndComperators_19.Exercise.Collection_2.ListIterator.ListIterator;
 
 import java.util.ArrayList;
 import java.util.Arrays;
