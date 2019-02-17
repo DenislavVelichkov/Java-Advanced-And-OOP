@@ -1,4 +1,4 @@
-package JavaAdvanced.DemoExam_170219.Zad_1;
+package JavaAdvanced.DemoExam_170219;
 
 import java.util.*;
 import java.util.stream.Collectors;

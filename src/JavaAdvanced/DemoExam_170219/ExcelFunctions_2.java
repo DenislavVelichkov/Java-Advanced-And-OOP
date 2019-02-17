@@ -1,4 +1,4 @@
-package JavaAdvanced.DemoExam_170219.Zad_2;
+package JavaAdvanced.DemoExam_170219;
 
 import java.util.ArrayList;
 import java.util.Arrays;
