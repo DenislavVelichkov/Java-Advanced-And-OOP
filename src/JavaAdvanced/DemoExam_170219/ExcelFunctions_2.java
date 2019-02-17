@@ -2,6 +2,7 @@ package JavaAdvanced.DemoExam_170219;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class ExcelFunctions_2 {
@@ -9,13 +10,13 @@ public class ExcelFunctions_2 {
         Scanner sc = new Scanner(System.in);
 
         int n = Integer.parseInt(sc.nextLine());
-        ArrayList<ArrayList<String>> row = new ArrayList<>();
+        ArrayList<ArrayList<String>> matrix = new ArrayList<>();
         ArrayList<String> col = new ArrayList<>();
 
         while (n-- > 0) {
             String[] data = sc.nextLine().split("[,\\s]+");
             col.addAll(Arrays.asList(data));
-            row.add(col);
+            matrix.add(col);
             col = new ArrayList<>();
         }
 
@@ -23,33 +24,54 @@ public class ExcelFunctions_2 {
 
         switch (line[0]) {
             case "sort":
+                sortMatrix(matrix, line[1]);
                 break;
             case "hide":
-                hide(row, line[1]);
+                hide(matrix, line[1]);
                 break;
             case "filter":
-                filter(row, line[1], line[2]);
+                filter(matrix, line[1], line[2]);
                 break;
             default:
                 break;
         }
-        //Hide
     }
 
-    private static void filter(ArrayList<ArrayList<String>> row, String headerName, String param) {
-        ArrayList<String> temp = new ArrayList<>(row.get(0));
-        int header = temp.get(0).indexOf(headerName);
+    private static void sortMatrix(ArrayList<ArrayList<String>> matrix, String param) {
+        int headerIndex = matrix.get(0).indexOf(param);
+        System.out.println(print(matrix.get(0)));
 
-        for (ArrayList<String> col : row) {
-            temp.add(col.get(header));
-        }
-
+        matrix
+                .stream()
+                .skip(1)
+                .sorted(Comparator.comparing(o -> o.get(headerIndex)))
+                .forEach(rows -> System.out.println(print(rows)));
     }
 
-    private static void hide(ArrayList<ArrayList<String>> rows, String cmd) {
-        int colToHide = rows.get(0).indexOf(cmd);
-        for (ArrayList<String> row : rows) {
-            row.remove(colToHide);
+    private static void filter(ArrayList<ArrayList<String>> matrix, String headerName, String param) {
+        int headerIndex = matrix.get(0).indexOf(headerName);
+        System.out.println(print(matrix.get(0)));
+
+        matrix
+                .stream()
+                .skip(1)
+                .filter(rows -> rows.get(headerIndex).contains(param))
+                .forEach(row -> System.out.println(print(row)));
+    }
+
+    private static void hide(ArrayList<ArrayList<String>> matrix, String param) {
+        int colToHide = matrix.get(0).indexOf(param);
+
+        for (ArrayList<String> rows : matrix) {
+            rows.remove(colToHide);
         }
+
+        for (ArrayList<String> rows : matrix) {
+            System.out.println(print(rows));
+        }
+    }
+
+    private static String print(ArrayList<String> matrix) {
+        return String.join(" | ", matrix);
     }
 }
