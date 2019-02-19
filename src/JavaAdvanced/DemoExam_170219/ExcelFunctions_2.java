@@ -41,7 +41,7 @@ public class ExcelFunctions_2 {
                 .stream()
                 .skip(1)
                 .sorted(Comparator.comparing(o -> o.get(headerIndex)))
-                .forEach(rows -> System.out.println(print(rows)));
+                .forEach(row -> System.out.println(print(row)));
     }
 
     private static void filter(ArrayList<ArrayList<String>> matrix, String headerName, String param) {
@@ -58,12 +58,12 @@ public class ExcelFunctions_2 {
     private static void hide(ArrayList<ArrayList<String>> matrix, String param) {
         int colToHide = matrix.get(0).indexOf(param);
 
-        for (ArrayList<String> rows : matrix) {
-            rows.remove(colToHide);
+        for (ArrayList<String> row : matrix) {
+            row.remove(colToHide);
         }
 
-        for (ArrayList<String> rows : matrix) {
-            System.out.println(print(rows));
+        for (ArrayList<String> row : matrix) {
+            System.out.println(print(row));
         }
     }
 
