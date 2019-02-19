@@ -1,9 +1,6 @@
 package JavaAdvanced.DemoExam_170219;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.Scanner;
+import java.util.*;
 
 public class ExcelFunctions_2 {
     public static void main(String[] args) {
@@ -11,13 +8,12 @@ public class ExcelFunctions_2 {
 
         int n = Integer.parseInt(sc.nextLine());
         ArrayList<ArrayList<String>> matrix = new ArrayList<>();
-        ArrayList<String> col = new ArrayList<>();
 
         while (n-- > 0) {
             String[] data = sc.nextLine().split("[,\\s]+");
-            col.addAll(Arrays.asList(data));
-            matrix.add(col);
-            col = new ArrayList<>();
+            matrix.addAll(
+                    Collections.singleton(
+                            new ArrayList<>(Arrays.asList(data))));
         }
 
         String[] line = sc.nextLine().split(" ");
@@ -55,7 +51,7 @@ public class ExcelFunctions_2 {
         matrix
                 .stream()
                 .skip(1)
-                .filter(rows -> rows.get(headerIndex).contains(param))
+                .filter(rows -> rows.get(headerIndex).equals(param))
                 .forEach(row -> System.out.println(print(row)));
     }
 
