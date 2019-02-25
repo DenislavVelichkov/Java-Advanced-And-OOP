@@ -1,106 +1,77 @@
 package JavaAdvanced.ExamPrep_24;
 
-import java.util.Scanner;
+import java.sql.SQLOutput;
+import java.util.*;
 
 public class Hospital_1 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        int n = Integer.parseInt(sc.nextLine());
+        String input = sc.nextLine();
+        Map<String, String[][]> departments = new HashMap<>();
+        Map<String, TreeSet<String>> doctorsAndPatients = new HashMap<>();
 
-        char[][] room = new char[n][];
-        int[] samPos = new int[2];
-        int[] nikolaPos = new int[2];
+        while (!input.equals("Output")) {
+            String[] tokens = input.split("\\s+");
+            String department = tokens[0];
+            String doctor = tokens[1] + " " + tokens[2];
+            String patient = tokens[3];
 
-        for (int row = 0; row < room.length; row++) {
-            String line = sc.nextLine();
-            room[row] = line.toCharArray();
-
-            if (line.contains("N")) {
-                nikolaPos[0] = row;
-                nikolaPos[1] = line.indexOf("N");
-            } else if (line.contains("S")) {
-                samPos[0] = row;
-                nikolaPos[1] = line.indexOf("S");
+            if (!departments.containsKey(department)) {
+                departments.put(department, new String[20][3]);
             }
 
-        }
-
-        String command = sc.nextLine();
-
-        for (int i = 0; i < command.length(); i++) {
-            moveEnemies(room);
-
-            boolean samIsDead = isSamDead(room, samPos);
-
-            if (samIsDead) {
-                room[samPos[0]][samPos[1]] = 'X';
-                System.out.printf("Sam died at %d, %d%n", samPos[0], samPos[1]);
-                break;
-            } else {
-                moveSam(room, samPos, command.charAt(i));
-            }
-
-            if (nikolaPos[0] == samPos[0]) {
-                System.out.println("Nikoladze killed!");
-                room[nikolaPos[0]][nikolaPos[1]] = 'X';
-                break;
-            }
-        }
-    }
-
-    private static void moveSam(char[][] room, int[] samPos, char direction) {
-        if (direction == 'U') {
-            room[samPos[0]--][samPos[1]] = '.';
-            room[samPos[0]][samPos[1]] = 'S';
-        } else if (direction == 'D') {
-            room[samPos[0]++][samPos[1]] = '.';
-            room[samPos[0]][samPos[1]] = 'S';
-        } else if (direction == 'L') {
-            room[samPos[0]++][samPos[1]--] = '.';
-            room[samPos[0]][samPos[1]] = 'S';
-        } else if (direction == 'R') {
-            room[samPos[0]++][samPos[1]++] = '.';
-            room[samPos[0]][samPos[1]] = 'S';
-        }
-    }
-
-    private static boolean isSamDead(char[][] room, int[] samPos) {
-        for (int col = 0; col < samPos[1]; col++) {
-            if (room[samPos[0]][col] == 'b') {
-                return true;
-            }
-        }
-
-        for (int col = samPos[1] + 1; col < room[samPos[0]].length; col++) {
-            if (room[samPos[0]][col] == 'd') {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private static void moveEnemies(char[][] room) {
-        for (int row = 0; row < room.length; row++) {
-            for (int col = 0; col < room[row].length; col++) {
-                if (room[row][col] == 'b') {
-                    if (col == room.length - 1) {
-                        room[row][col] = 'd';
-                    } else {
-                        room[row][col] = '.';
-                        room[row][col + 1] = 'b';
-                        break;
-                    }
-                } else if (room[row][col] == 'd') {
-                    if (col == 0) {
-                        room[row][col] = 'b';
-                    } else {
-                        room[row][col] = '.';
-                        room[row][col + 1] = 'd';
+            boolean patientAdded = false;
+            for (int row = 0; row < departments.get(department).length; row++) {
+                for (int col = 0; col < departments.get(department)[row].length; col++) {
+                    if (departments.get(department)[row][col] == null) {
+                        departments.get(department)[row][col] = patient;
+                        patientAdded = true;
                         break;
                     }
                 }
+                if (patientAdded) {
+                    break;
+                }
             }
+
+            if (!doctorsAndPatients.containsKey(doctor)) {
+                doctorsAndPatients.put(doctor, new TreeSet<>());
+            }
+            if (patientAdded) {
+                doctorsAndPatients.get(doctor).add(patient);
+            }
+
+
+            input = sc.nextLine();
+        }
+        
+        input = sc.nextLine();
+
+        while (!input.equals("End")) {
+            String[] tokens = input.split("\\s+");
+
+            if (tokens.length == 1) {
+                String department = tokens[0];
+                Arrays.stream(departments.get(department)).forEach(e -> {
+                    Arrays.stream(e).filter(Objects::nonNull).forEach(System.out::println);
+                });
+            } else if (tokens.length == 2) {
+                if (Character.isDigit(tokens[1].charAt(0))) {
+                    String department = tokens[0];
+                    int room = Integer.parseInt(tokens[1]) - 1;
+                    String[] patients = departments.get(department)[room];
+                    Arrays.stream(patients).filter(Objects::nonNull).sorted(String::compareTo)
+                            .forEach(System.out::println);
+                } else {
+                    String doctor = tokens[0] + " " + tokens[1];
+
+                    doctorsAndPatients.get(doctor).forEach(System.out::println);
+                }
+            }
+
+            input = sc.nextLine();
+
         }
     }
 }

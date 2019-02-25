@@ -1,11 +1,11 @@
-package JavaAdvanced.DemoExam_170219.Repository_3;
+package JavaAdvanced.DemoExam_17_02_19.Repository_3;
 
-import JavaAdvanced.DemoExam_170219.Repository_3.repository.Person;
-import JavaAdvanced.DemoExam_170219.Repository_3.repository.Repository;
+import JavaAdvanced.DemoExam_17_02_19.Repository_3.repository.Person;
+import JavaAdvanced.DemoExam_17_02_19.Repository_3.repository.Repository;
 
 public class Main {
     public static void main(String[] args) {
-        //Initialize the JavaAdvanced.DemoExam_170219.Repository_3.repository
+        //Initialize the JavaAdvanced.DemoExam_17_02_19.Repository_3.repository
         Repository repository = new Repository();
 
         //Initialize Person
