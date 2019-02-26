@@ -37,7 +37,7 @@ public class Car {
       return String.format("Make: %s%n" +
               "Model: %s%n" +
               "HorsePower: %d%n" +
-              "RegistrationNumber: %s%n",
+              "RegistrationNumber: %s",
               this.make, this.model,
               this.horsePower, this.registrationNumber);
    }
