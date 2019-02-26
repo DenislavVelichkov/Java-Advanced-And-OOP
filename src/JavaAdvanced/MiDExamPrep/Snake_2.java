@@ -30,25 +30,27 @@ public class Snake_2 {
             }
         }
 
-        for (int i = 0; i < commands.length; i++) {
-            snakeMoves(board.length, commands[i]);
+        int i = 0;
+        while (i < commands.length) {
+            snakeMoves(screenSize, commands[i]);
 
-            if (board[snakePosition[0]][snakePosition[1]] == 'f') {
-                foodCount--;
-                snakeLength++;
-            }
             if (board[snakePosition[0]][snakePosition[1]] == 'e') {
                 System.out.println("You lose! Killed by an enemy!");
                 return;
             }
 
+            if (board[snakePosition[0]][snakePosition[1]] == 'f') {
+                foodCount--;
+                snakeLength++;
+                if (foodCount == 0) {
+                    System.out.printf("You win! Final snake length is %d", snakeLength);
+                    return;
+                }
+            }
+            i++;
         }
 
-        if (foodCount > 0) {
-            System.out.printf("You lose! There is still %d food to be eaten.", foodCount);
-        } else {
-            System.out.printf("You win! Final snake length is %d", snakeLength);
-        }
+        System.out.printf("You lose! There is still %d food to be eaten.", foodCount);
     }
 
     private static void snakeMoves(int boardSize, String commands) {
