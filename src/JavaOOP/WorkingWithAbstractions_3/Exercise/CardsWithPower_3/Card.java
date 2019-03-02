@@ -1,19 +1,25 @@
 package JavaOOP.WorkingWithAbstractions_3.Exercise.CardsWithPower_3;
 
 public class Card {
-    private int power;
     private String name;
+    private String suit;
 
-    public Card(int power, String name) {
-        this.power = power;
+    public Card(String name, String suit) {
         this.name = name;
+        this.suit = suit;
     }
 
-    public int getPower() {
-        return power;
-    }
+    public int calculatePower() {
 
-    public String getName() {
-        return name;
+        return Deck.valueOf(this.name).getValue() +
+               Rank.valueOf(this.suit).getValue();
+    }
+    @Override
+    public String toString() {
+        return String.format(
+                "Card name: %s of %s; Card power: %d",
+                this.name,
+                this.suit,
+                calculatePower());
     }
 }
