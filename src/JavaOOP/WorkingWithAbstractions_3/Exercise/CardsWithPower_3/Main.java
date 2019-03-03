@@ -9,7 +9,7 @@ public class Main {
         String cardName = sc.nextLine();
         String cardPower = sc.nextLine();
 
-        Card card = new Card(cardName, cardPower);
+        Card card = new Card(Deck.valueOf(cardName), Rank.valueOf(cardPower));
         System.out.println(card.toString());
     }
 }
