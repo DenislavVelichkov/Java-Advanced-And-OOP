@@ -1,4 +1,4 @@
-package JavaOOP.WorkingWithAbstractions_3.Exercise.GreedyTimes_6;
+package JavaOOP.WorkingWithAbstractions_3.Exercise.GreedyTimes_6Martin;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -9,25 +9,23 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-        long maxCapacity = Long.parseLong(reader.readLine());
+        long capacity = Long.parseLong(reader.readLine());
+        Bag bag = new Bag(capacity);
         String[] input = reader.readLine().split("\\s+");
-        Bag bag = new Bag(maxCapacity);
 
         for (int i = 0; i < input.length; i += 2) {
             String itemType = input[i];
-            long amount = Long.parseLong(input[i + 1]);
-
-            String item = "";
+            long weight = Long.parseLong(input[i + 1]);
 
             if (itemType.length() == 3) {
-                item = "Cash";
-            } else if (itemType.toLowerCase().endsWith("gem")) {
-                item = "Gem";
+                bag.addCash(itemType, weight);
+            } else if (itemType.toLowerCase().endsWith("gem")
+                    && itemType.length() > 3) {
+                bag.addGems(itemType, weight);
             } else if (itemType.toLowerCase().equals("gold")) {
-                item = "Gold";
+                bag.addGold(weight);
             }
 
-            bag.addItem(item, itemType, amount);
         }
 
         System.out.println(bag);
