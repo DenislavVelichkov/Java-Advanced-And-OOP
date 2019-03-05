@@ -21,6 +21,8 @@ public class Box {
                     "Length cannot be zero or negative."
             );
         }
+
+        this.length = length;
     }
 
     public double getWidth() {
@@ -33,6 +35,8 @@ public class Box {
                     "Width cannot be zero or negative."
             );
         }
+
+        this.width = width;
     }
 
     public double getHeight() {
@@ -45,6 +49,8 @@ public class Box {
                     "Height cannot be zero or negative."
             );
         }
+
+        this.height = height;
     }
 
     public double calculateSurfaceArea() {
