@@ -17,11 +17,11 @@ public class Main {
         List<Product> listOfProducts = new ArrayList<>();
 
         for (int i = 0; i < people.length; i++) {
-            String[] personToBeRet = people[i].split("=");
+            String[] personToBeRed = people[i].split("=");
 
-            for (int j = 0; j < personToBeRet.length; j++) {
-                String name = personToBeRet[j];
-                double money = Double.parseDouble(personToBeRet[j + 1]);
+            for (int j = 0; j < personToBeRed.length; j++) {
+                String name = personToBeRed[j];
+                double money = Double.parseDouble(personToBeRed[j + 1]);
 
                 try {
                     Person person = new Person(name, money);
@@ -35,11 +35,11 @@ public class Main {
         }
 
         for (int i = 0; i < products.length; i++) {
-            String[] productToBeRet = products[i].split("=");
+            String[] productToBeRed = products[i].split("=");
 
-            for (int j = 0; j < productToBeRet.length; j++) {
-                String name = productToBeRet[j];
-                int cost = Integer.parseInt(productToBeRet[j + 1]);
+            for (int j = 0; j < productToBeRed.length; j++) {
+                String name = productToBeRed[j];
+                double cost = Double.parseDouble(productToBeRed[j + 1]);
 
                 try {
                     Product product = new Product(name, cost);
