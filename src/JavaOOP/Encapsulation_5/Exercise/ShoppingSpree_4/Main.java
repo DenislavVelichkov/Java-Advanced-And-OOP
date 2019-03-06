@@ -16,41 +16,8 @@ public class Main {
         List<Person> listOfPeople = new ArrayList<>();
         List<Product> listOfProducts = new ArrayList<>();
 
-        for (int i = 0; i < people.length; i++) {
-            String[] personToBeRed = people[i].split("=");
-
-            for (int j = 0; j < personToBeRed.length; j++) {
-                String name = personToBeRed[j];
-                double money = Double.parseDouble(personToBeRed[j + 1]);
-
-                try {
-                    Person person = new Person(name, money);
-                    listOfPeople.add(person);
-                } catch (IllegalArgumentException ex) {
-                    System.out.println(ex.getMessage());
-                }
-
-                break;
-            }
-        }
-
-        for (int i = 0; i < products.length; i++) {
-            String[] productToBeRed = products[i].split("=");
-
-            for (int j = 0; j < productToBeRed.length; j++) {
-                String name = productToBeRed[j];
-                double cost = Double.parseDouble(productToBeRed[j + 1]);
-
-                try {
-                    Product product = new Product(name, cost);
-                    listOfProducts.add(product);
-                } catch (IllegalArgumentException ex) {
-                    System.out.println(ex.getMessage());
-                }
-
-                break;
-            }
-        }
+        createPerson(people, listOfPeople);
+        createProduct(products, listOfProducts);
 
         if (!listOfPeople.isEmpty()) {
 
@@ -78,6 +45,46 @@ public class Main {
                 System.out.println(person);
             }
 
+        }
+    }
+
+    private static void createProduct(String[] products, List<Product> listOfProducts) {
+        for (int i = 0; i < products.length; i++) {
+            String[] productToBeRed = products[i].split("=");
+
+            for (int j = 0; j < productToBeRed.length; j++) {
+                String name = productToBeRed[j];
+                double cost = Double.parseDouble(productToBeRed[j + 1]);
+
+                try {
+                    Product product = new Product(name, cost);
+                    listOfProducts.add(product);
+                } catch (IllegalArgumentException ex) {
+                    System.out.println(ex.getMessage());
+                }
+
+                break;
+            }
+        }
+    }
+
+    private static void createPerson(String[] people, List<Person> listOfPeople) {
+        for (int i = 0; i < people.length; i++) {
+            String[] personToBeRed = people[i].split("=");
+
+            for (int j = 0; j < personToBeRed.length; j++) {
+                String name = personToBeRed[j];
+                double money = Double.parseDouble(personToBeRed[j + 1]);
+
+                try {
+                    Person person = new Person(name, money);
+                    listOfPeople.add(person);
+                } catch (IllegalArgumentException ex) {
+                    System.out.println(ex.getMessage());
+                }
+
+                break;
+            }
         }
     }
 
