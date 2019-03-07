@@ -1,3 +1,6 @@
+package JavaOOP.Encapsulation_5.Exercise.FootballTeamGenerator_6;
+
+import java.security.InvalidParameterException;
 
 public class Player {
     private String name;
@@ -20,29 +23,9 @@ public class Player {
         return this.name;
     }
 
-    public int getEndurance() {
-        return this.endurance;
-    }
-
-    public int getSprint() {
-        return this.sprint;
-    }
-
-    public int getDribble() {
-        return this.dribble;
-    }
-
-    public int getPassing() {
-        return this.passing;
-    }
-
-    public int getShooting() {
-        return this.shooting;
-    }
-
     private void setName(String name) {
-        if (name.isEmpty() || name.contains(" ")) {
-            throw new IllegalArgumentException(
+        if (name == null || name.isEmpty() || name.contains(" ")) {
+            throw new InvalidParameterException(
                     "A name should not be empty."
             );
         }
@@ -51,8 +34,8 @@ public class Player {
     }
 
     private void setShooting(int shooting) {
-        if (shooting < 0 || shooting > 100) {
-            throw new IllegalArgumentException(
+        if (validateStats(shooting)) {
+            throw new InvalidParameterException(
                     "Shooting should be between 0 and 100."
             );
         }
@@ -61,8 +44,8 @@ public class Player {
     }
 
     private void setPassing(int passing) {
-        if (passing < 0 || passing > 100) {
-            throw new IllegalArgumentException(
+        if (validateStats(passing)) {
+            throw new InvalidParameterException(
                     "Passing should be between 0 and 100."
             );
         }
@@ -71,8 +54,8 @@ public class Player {
     }
 
     private void setDribble(int dribble) {
-        if (dribble < 0 || dribble > 100) {
-            throw new IllegalArgumentException(
+        if (validateStats(dribble)) {
+            throw new InvalidParameterException(
                     "Dribble should be between 0 and 100."
             );
         }
@@ -81,8 +64,8 @@ public class Player {
     }
 
     private void setSpring(int sprint) {
-        if (sprint < 0 || sprint > 100) {
-            throw new IllegalArgumentException(
+        if (validateStats(sprint)) {
+            throw new InvalidParameterException(
                     "Sprint should be between 0 and 100."
             );
         }
@@ -91,8 +74,8 @@ public class Player {
     }
 
     private void setEndurance(int endurance) {
-        if (endurance < 0 || endurance > 100) {
-            throw new IllegalArgumentException(
+        if (validateStats(endurance)) {
+            throw new InvalidParameterException(
                     "Endurance should be between 0 and 100."
             );
         }
@@ -108,5 +91,9 @@ public class Player {
                 + this.shooting;
 
         return sumOfStats / 5;
+    }
+
+    private boolean validateStats(int stat) {
+        return stat < 0 || stat > 100;
     }
 }

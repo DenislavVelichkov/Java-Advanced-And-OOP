@@ -1,140 +1,136 @@
+package JavaOOP.Encapsulation_5.Exercise.FootballTeamGenerator_6;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
-import java.util.stream.Collectors;
+import java.security.InvalidParameterException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
-  private static Map<String, Integer> teamIndexes = new LinkedHashMap<>();
-  private static List<Team> teams = new ArrayList<>();
+    private static List<Team> teams = new ArrayList<>();
 
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-        ArrayList<String> input =
-                Arrays.stream(reader.readLine().split(";"))
-                        .collect(Collectors.toCollection(ArrayList::new));
+        String[] input = reader.readLine().split(";");
 
-
-        int index = 0;
-
-
-        while (!input.get(0).equals("END")) {
+        while (!input[0].equals("END")) {
             try {
-                inputParser(input, teamIndexes, teams, index, input);
-            } catch (IllegalArgumentException e) {
+                inputParser(input, teams);
+            } catch (InvalidParameterException e) {
                 System.out.println(e.getMessage());
             }
 
-            input = Arrays.stream(reader.readLine().split(";"))
-                            .collect(Collectors.toCollection(ArrayList::new));
+            input = reader.readLine().split(";");
         }
     }
 
-    private static void inputParser(ArrayList<String> input, Map<String, Integer> teamIndexes, List<Team> teams, int index, ArrayList<String> inputPlayers) {
-        String teamName = input.get(1);
-        int getTeamIndex = 0;
+    private static void inputParser(String[] input, List<Team> teams) {
+        String teamName = input[1];
+        int teamIndex;
 
-        if (validateTeamName(teamName)) {
 
-            switch (inputPlayers.get(0)) {
+        switch (input[0]) {
 
-                case "Team":
-                    createATeam(input, teamIndexes, teams, index);
+            case "Team":
+                createATeam(input, teams);
+                break;
+
+            case "Add":
+
+                try {
+                    createAPlayer(input, teamName);
+                } catch (InvalidParameterException e) {
+                    System.out.println(e.getMessage());
+                }
+
+                break;
+
+            case "Remove":
+                teamIndex = getTeamIndex(teams, teamName);
+
+                try {
+                    teams.get(teamIndex).removePlayer(input[2]);
+                } catch (InvalidParameterException e) {
+                    System.out.println(e.getMessage());
+                }
+                break;
+
+            case "Rating":
+                teamName = input[1];
+                teamIndex = getTeamIndex(teams, teamName);
+                double ratingToBeFormatted;
+
+                try {
+                    ratingToBeFormatted = teams.get(teamIndex).getRating();
+                } catch (IndexOutOfBoundsException e) {
+                    System.out.printf("Team %s does not exist.", teamName);
                     break;
+                }
 
-                case "Add":
+                if (String.valueOf(ratingToBeFormatted).equals("NaN")) {
+                    ratingToBeFormatted = 0;
+                }
 
-                    try {
-                        createAPlayer(input, teamName);
-                    } catch (IllegalArgumentException e) {
-                        System.out.println(e.getMessage());
-                    }
+                System.out.println(String.format("%s - %.0f",
+                        teamName, Math.ceil(ratingToBeFormatted)));
 
-                    break;
+                break;
 
-                case "Remove":
-                    getTeamIndex = teamIndexes.get(teamName);
+            default:
+                break;
+        }
+    }
 
-                    try {
-                        teams.get(getTeamIndex).removePlayer(input.get(2));
-                    } catch (IllegalArgumentException e) {
-                        System.out.println(e.getMessage());
-                    }
-                    break;
+    private static int getTeamIndex(List<Team> teams, String teamName) {
+        int index = -1;
 
-                case "Rating":
-                    teamName = input.get(1);
-                    getTeamIndex = teamIndexes.get(teamName);
-                    double ratingToBeFormatted = teams.get(getTeamIndex).getRating();
-
-                    System.out.println(String.format("%s - %.0f",
-                            teamName, Math.ceil(ratingToBeFormatted)));
-
-                    break;
-
-                default:
-                    break;
+        for (Team team : teams) {
+            if (team.getName().equals(teamName)) {
+                index = teams.indexOf(team);
             }
-        } else {
-            throw new IllegalArgumentException("A name should not be empty.");
-        }
-    }
-
-    private static boolean validateTeamName(String teamName) {
-        boolean isValid;
-        if (teamName.contains(" ") || teamName.isEmpty()) {
-            isValid = false;
-        } else {
-            isValid = true;
         }
 
-        return isValid;
+        return index;
     }
 
-    private static void createAPlayer(ArrayList<String> input, String teamName) {
-        int index = teamIndexes.get(teamName);
+    private static void createAPlayer(String[] input, String teamName) {
+        int index = getTeamIndex(teams, teamName);
 
-        if (!teamIndexes.containsKey(teamName)) {
-            throw new IllegalArgumentException(
+
+        if (index == -1) {
+            throw new InvalidParameterException(
                     String.format("Team %s does not exist.", teamName)
             );
         }
 
         try {
-            Player player = new Player(input.get(2),
-                    Integer.parseInt(input.get(3)),
-                    Integer.parseInt(input.get(4)),
-                    Integer.parseInt(input.get(5)),
-                    Integer.parseInt(input.get(6)),
-                    Integer.parseInt(input.get(7))
+            Player player = new Player(input[2],
+                    Integer.parseInt(input[3]),
+                    Integer.parseInt(input[4]),
+                    Integer.parseInt(input[5]),
+                    Integer.parseInt(input[6]),
+                    Integer.parseInt(input[7])
             );
             teams.get(index).addPlayer(player);
 
-        } catch (IllegalArgumentException e) {
+        } catch (InvalidParameterException e) {
             System.out.println(e.getMessage());
         }
+
     }
 
-    private static void createATeam(ArrayList<String> input, Map<String, Integer> teamIndexes, List<Team> teams, int index) {
-        while (true) {
-            if (input.size() == 1) {
-                break;
-            }
-
+    private static void createATeam(String[] input, List<Team> teams) {
+        for (int i = 1; i < input.length; i++) {
             try {
-                Team team = new Team(input.get(1));
-                if (!teamIndexes.containsKey(team.getName())) {
-                    teamIndexes.put(input.get(1), index++);
-                    teams.add(team);
-                    input.remove(1);
-                }
-            } catch (IllegalArgumentException e) {
+                Team team = new Team(input[i]);
+                teams.add(team);
+
+            } catch (InvalidParameterException e) {
                 System.out.println(e.getMessage());
             }
-
-
         }
+
     }
 }
