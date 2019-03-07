@@ -16,12 +16,7 @@ public class Box {
     }
 
     private void setLength(double length) {
-        if (length <= 0) {
-            throw new IllegalArgumentException(
-                    "Length cannot be zero or negative."
-            );
-        }
-
+        this.validateSize("Length", length);
         this.length = length;
     }
 
@@ -30,12 +25,7 @@ public class Box {
     }
 
     private void setWidth(double width) {
-        if (width <= 0) {
-            throw new IllegalArgumentException(
-                    "Width cannot be zero or negative."
-            );
-        }
-
+        this.validateSize("Width", width);
         this.width = width;
     }
 
@@ -44,12 +34,7 @@ public class Box {
     }
 
     private void setHeight(double height) {
-        if (height <= 0) {
-            throw new IllegalArgumentException(
-                    "Height cannot be zero or negative."
-            );
-        }
-
+        this.validateSize("Height", height);
         this.height = height;
     }
 
@@ -68,6 +53,14 @@ public class Box {
         return this.length
                 * this.width
                 * this.height;
+    }
+
+    private void validateSize(String fieldName, double size) {
+        if (size <= 0) {
+            throw new IllegalArgumentException(
+                    fieldName + " cannot be zero or negative."
+            );
+        }
     }
 
 }
