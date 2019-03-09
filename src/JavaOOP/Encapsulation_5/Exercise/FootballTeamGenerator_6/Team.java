@@ -9,18 +9,16 @@ public class Team {
     private List<Player> players;
 
     public Team(String name) {
-        this.players = new ArrayList<>();
         this.setName(name);
+        this.players = new ArrayList<>();
     }
 
     private double rating() {
-        double sumOfOverallSkillLevel = 0d;
-
-        for (Player player : this.players) {
-            sumOfOverallSkillLevel += player.overallSkillLevel();
-        }
-
-        return sumOfOverallSkillLevel / this.players.size();
+        return Math.round(this.players
+                .stream()
+                .mapToDouble(Player::overallSkillLevel)
+                .average()
+                .orElse(0) / this.players.size());
     }
 
     public double getRating() {
@@ -32,7 +30,7 @@ public class Team {
     }
 
     private void setName(String name) {
-        if (name == null || name.contains(" ") || name.isEmpty()) {
+        if (name.trim().isEmpty()) {
             throw new InvalidParameterException(
                     "A name should not be empty."
             );
@@ -42,14 +40,7 @@ public class Team {
     }
 
     public void addPlayer(Player player) {
-       boolean isPresent = this.players
-                .stream()
-                .anyMatch(players -> players.getName().equals(player.getName()));
-
-        if (!isPresent) {
-            this.players.add(player);
-        }
-
+        this.players.add(player);
     }
 
     public void removePlayer(String playerName) {
@@ -59,9 +50,10 @@ public class Team {
                 .findAny()
                 .ifPresentOrElse(
                         player -> this.players.remove(player),
-                        () -> { throw new InvalidParameterException(
-                                String.format("Player %s is not in %s team.",
-                                        playerName, this.getName()));
+                        () -> {
+                            throw new InvalidParameterException(
+                                    String.format("Player %s is not in %s team.",
+                                            playerName, this.getName()));
                         });
 
     }

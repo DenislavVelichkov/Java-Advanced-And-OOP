@@ -24,8 +24,8 @@ public class Player {
     }
 
     private void setName(String name) {
-        if (name == null || name.isEmpty() || name.contains(" ")) {
-            throw new InvalidParameterException(
+        if (name.trim().isEmpty()) {
+            throw new IllegalArgumentException(
                     "A name should not be empty."
             );
         }
@@ -84,13 +84,14 @@ public class Player {
     }
 
     public double overallSkillLevel() {
-        double sumOfStats = this.dribble
+        double sumOfStats =
+                this.dribble
                 + this.endurance
                 + this.sprint
                 + this.passing
                 + this.shooting;
 
-        return sumOfStats / 5;
+        return sumOfStats / 5.0;
     }
 
     private boolean validateStats(int stat) {
