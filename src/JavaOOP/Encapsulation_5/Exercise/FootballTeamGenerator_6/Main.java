@@ -27,7 +27,7 @@ public class Main {
     }
 
     private static void inputParser(String[] input, List<Team> teams) {
-        String teamName = input[1];
+        String teamName;
         int teamIndex;
 
 
@@ -38,9 +38,17 @@ public class Main {
                 break;
 
             case "Add":
+                teamName = input[1];
+                teamIndex = getTeamIndex(teams, teamName);
+
+                if (teamIndex == -1) {
+                    throw new InvalidParameterException(
+                            String.format("Team %s does not exist.", teamName)
+                    );
+                }
 
                 try {
-                    createAPlayer(input, teamName);
+                    createAPlayer(input, teamIndex);
                 } catch (InvalidParameterException e) {
                     System.out.println(e.getMessage());
                 }
@@ -48,7 +56,14 @@ public class Main {
                 break;
 
             case "Remove":
+                teamName = input[1];
                 teamIndex = getTeamIndex(teams, teamName);
+
+                if (teamIndex == -1) {
+                    throw new InvalidParameterException(
+                            String.format("Team %s does not exist.", teamName)
+                    );
+                }
 
                 try {
                     teams.get(teamIndex).removePlayer(input[2]);
@@ -95,15 +110,7 @@ public class Main {
         return index;
     }
 
-    private static void createAPlayer(String[] input, String teamName) {
-        int index = getTeamIndex(teams, teamName);
-
-
-        if (index == -1) {
-            throw new InvalidParameterException(
-                    String.format("Team %s does not exist.", teamName)
-            );
-        }
+    private static void createAPlayer(String[] input, int teamIndex) {
 
         try {
             Player player = new Player(input[2],
@@ -113,7 +120,7 @@ public class Main {
                     Integer.parseInt(input[6]),
                     Integer.parseInt(input[7])
             );
-            teams.get(index).addPlayer(player);
+            teams.get(teamIndex).addPlayer(player);
 
         } catch (InvalidParameterException e) {
             System.out.println(e.getMessage());
@@ -123,6 +130,13 @@ public class Main {
 
     private static void createATeam(String[] input, List<Team> teams) {
         for (int i = 1; i < input.length; i++) {
+            int finalI = i;
+            boolean isPresent =
+                    teams.stream()
+                            .anyMatch(team -> team.getName().equals(input[finalI]));
+
+            if (isPresent) { continue; }
+
             try {
                 Team team = new Team(input[i]);
                 teams.add(team);
