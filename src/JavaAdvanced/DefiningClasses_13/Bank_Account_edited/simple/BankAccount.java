@@ -1,4 +1,4 @@
-package simple;
+package JavaAdvanced.DefiningClasses_13.Bank_Account_edited.simple;
 
 class BankAccount {
     private static double interestRate = 0.02;
