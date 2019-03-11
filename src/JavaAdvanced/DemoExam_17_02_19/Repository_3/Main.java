@@ -8,13 +8,13 @@ public class Main {
         //Initialize the JavaAdvanced.DemoExam_17_02_19.Repository_3.repository
         Repository repository = new Repository();
 
-        //Initialize JavaOOP.Inheritance_7.Exercise.Person_1.Person
+        //Initialize JavaOOP.Inheritance_7.Exercise.Person_1.Human
         Person person = new Person("Pesho", 14, "13-07-2004");
 
         //Add two entities
         repository.add(person);
 
-        //Initialize second JavaOOP.Inheritance_7.Exercise.Person_1.Person object
+        //Initialize second JavaOOP.Inheritance_7.Exercise.Person_1.Human object
         Person secondPerson = new Person("Gosho", 42, "21-09-1976");
         repository.add(secondPerson);
 

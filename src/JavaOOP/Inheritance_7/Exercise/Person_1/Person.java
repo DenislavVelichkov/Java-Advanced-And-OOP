@@ -33,7 +33,7 @@ public class Person {
 
     @Override
     public String toString() {
-        return "JavaOOP.Inheritance_7.Exercise.Person_1.Person{" +
+        return "JavaOOP.Inheritance_7.Exercise.Person_1.Human{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
                 '}';
