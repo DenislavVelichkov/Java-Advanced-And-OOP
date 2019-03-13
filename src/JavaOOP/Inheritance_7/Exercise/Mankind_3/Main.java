@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+       /* Scanner sc = new Scanner(System.in);
         String data = sc.nextLine();
         try {
             String[] input = data.split("\\s+");
@@ -21,6 +21,6 @@ public class Main {
             System.out.println(worker);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
-        }
+        }*/
     }
 }

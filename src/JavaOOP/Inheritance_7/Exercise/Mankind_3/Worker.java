@@ -10,27 +10,27 @@ public class Worker extends Human {
         this.setWorkHoursPerDay(workHoursPerDay);
     }
 
-    private double getWeekSalary() {
+    public double getWeekSalary() {
         return this.weekSalary;
     }
 
-    private double getWorkHoursPerDay() {
+    public double getWorkHoursPerDay() {
         return this.workHoursPerDay;
     }
 
     @Override
     protected void setLastName(String lastName) {
-        if (!Character.isUpperCase(lastName.charAt(0))) {
+        /*if (!Character.isUpperCase(lastName.charAt(0))) {
             throw new IllegalArgumentException(
                     String.format(
                             "Expected upper case " +
                                     "letter!Argument: %s", lastName
                     ));
-        }
+        }*/
         if (lastName.length() <= 3) {
             throw new IllegalArgumentException(
-                    String.format("Expected length more than" +
-                            " 3 symbols!Argument: %s", lastName)
+                   "Expected length more than" +
+                            " 3 symbols!Argument: lastName"
             );
         }
         super.setLastName(lastName);
@@ -39,10 +39,8 @@ public class Worker extends Human {
     private void setWeekSalary(double weekSalary) {
         if (weekSalary <= 10d) {
             throw new IllegalArgumentException(
-                    String.format(
                             "Expected value mismatch!" +
-                                    "Argument: %.2f", weekSalary
-                    ));
+                                    "Argument: weekSalary");
         }
 
         this.weekSalary = weekSalary;
@@ -51,9 +49,8 @@ public class Worker extends Human {
     private void setWorkHoursPerDay(double workHoursPerDay) {
         if (workHoursPerDay < 1d || workHoursPerDay > 12d) {
             throw new IllegalArgumentException(
-                   String.format(
                            "Expected value mismatch!" +
-                                   "Argument: %.2f", workHoursPerDay)
+                                   "Argument: workHoursPerDay"
             );
         }
 
