@@ -1,6 +1,8 @@
 package JavaOOP.Inheritance_7.HierarchicalInheritance_3;
 
-public class Cat extends Animal{
+import JavaOOP.Inheritance_7.SingleInheritance_1.Animal;
+
+public class Cat extends Animal {
     public Cat() {
     }
 
