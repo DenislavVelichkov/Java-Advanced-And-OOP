@@ -25,7 +25,6 @@ public class Song {
         }
 
         this.songName = songName;
-        /*"Invalid song length."*/
     }
 
     private void setLength(String length) throws InvalidSongLengthException {
@@ -33,12 +32,13 @@ public class Song {
 
         int minutes = Integer.parseInt(tokens[0]) * 60;
         int seconds = Integer.parseInt(tokens[1]);
+        int time = minutes + seconds;
 
         if (minutes < 0 || minutes > 840) {
             throw new InvalidSongLengthException("Song minutes should be between 0 and 14.");
         } else if (seconds < 0 || seconds > 59) {
             throw new InvalidSongLengthException("Song seconds should be between 0 and 59.");
-        } else if (minutes + seconds > 859){
+        } else if (time > 899){
             throw new InvalidSongLengthException("Invalid song length.");
         }
 

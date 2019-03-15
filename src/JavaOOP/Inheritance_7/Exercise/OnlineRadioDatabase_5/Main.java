@@ -9,12 +9,14 @@ public class Main {
         int n = Integer.parseInt(sc.nextLine());
         SongDataBase songDataBase = new SongDataBase();
 
-        String[] tokens = sc.nextLine().split(";");
 
         while (n-- > 0) {
+            String[] tokens = sc.nextLine().split(";");
+
             try {
                 Song song = new Song(tokens[0], tokens[1], tokens[2]);
                 songDataBase.addSong(song);
+                System.out.println("Song added.");
             } catch (InvalidSongException ex) {
                 System.out.println(ex.getMessage());
             }
