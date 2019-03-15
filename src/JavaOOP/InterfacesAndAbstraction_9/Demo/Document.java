@@ -7,12 +7,12 @@ public class Document implements Printable, Readable {
         System.out.println("Hello Document");
     }
 
-    @Override
+
     public void read() {
         System.out.println("Read Document");
     }
 
-    @Override
+
     public int readBytes() {
         return 115;
     }

@@ -1,4 +1,4 @@
-package demo;
+package JavaOOP.InterfacesAndAbstraction_9.Demo;
 
 public class Reader implements Readable {
     @Override

@@ -14,7 +14,6 @@ public class Child extends Person {
         if (age > 15) {
             throw new InvalidParameterException("Child's age must be lesser than 15!");
         }
-
         super.setAge(age);
     }
 }
