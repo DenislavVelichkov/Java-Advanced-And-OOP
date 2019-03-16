@@ -2,6 +2,7 @@ package JavaOOP.InterfacesAndAbstraction_9.MooD3_7;
 
 public class Archangel extends Character<String> {
     private static final String CHARACTER_TYPE = "Archangel";
+
     Archangel(String username, int level, Integer specialPoints) {
         super(username, CHARACTER_TYPE, level, specialPoints);
     }
