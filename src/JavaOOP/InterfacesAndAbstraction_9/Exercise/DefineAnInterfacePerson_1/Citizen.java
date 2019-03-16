@@ -1,4 +1,4 @@
-package JavaOOP.InterfacesAndAbstraction_9.Exercise.MultipleImplementation_2;
+package JavaOOP.InterfacesAndAbstraction_9.Exercise.DefineAnInterfacePerson_1;
 
 public class Citizen implements Person{
     private String name;
