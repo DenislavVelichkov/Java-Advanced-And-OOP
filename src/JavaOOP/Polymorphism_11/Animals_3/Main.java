@@ -1,3 +1,5 @@
+package JavaOOP.Polymorphism_11.Animals_3;
+
 public class Main {
     public static void main(String[] args) {
         Animal cat = new Cat("Pesho","Whiskas");

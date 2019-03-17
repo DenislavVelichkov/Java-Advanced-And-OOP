@@ -1,3 +1,5 @@
+package JavaOOP.Polymorphism_11.Animals_3;
+
 public class Dog extends Animal {
 
     public Dog(String name, String favouriteFood) {

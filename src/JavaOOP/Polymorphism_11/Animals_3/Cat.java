@@ -1,3 +1,5 @@
+package JavaOOP.Polymorphism_11.Animals_3;
+
 public class Cat extends Animal {
 
     public Cat(String name, String favouriteFood) {
