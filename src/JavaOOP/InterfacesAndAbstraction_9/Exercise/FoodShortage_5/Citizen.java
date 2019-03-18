@@ -1,4 +1,4 @@
-package JavaOOP.InterfacesAndAbstraction_9.Exercise.FoodShortage_4;
+package JavaOOP.InterfacesAndAbstraction_9.Exercise.FoodShortage_5;
 
 public class Citizen implements Person, Identifiable, Buyer{
     private String name;

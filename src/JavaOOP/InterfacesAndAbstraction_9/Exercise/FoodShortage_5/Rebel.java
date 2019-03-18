@@ -1,4 +1,4 @@
-package JavaOOP.InterfacesAndAbstraction_9.Exercise.FoodShortage_4;
+package JavaOOP.InterfacesAndAbstraction_9.Exercise.FoodShortage_5;
 
 public class Rebel implements Person, Buyer{
     private String name;
