@@ -1,8 +1,8 @@
 package JavaOOP.Solid_13.p01_SingleResponsibility.p01_DrawingShape;
 
-import solidLab.p01_SingleResponsibility.p01_DrawingShape.interfaces.DrawingRepository;
-import solidLab.p01_SingleResponsibility.p01_DrawingShape.interfaces.Rengerer;
-import solidLab.p01_SingleResponsibility.p01_DrawingShape.interfaces.Shape;
+import JavaOOP.Solid_13.p01_SingleResponsibility.p01_DrawingShape.interfaces.DrawingRepository;
+import JavaOOP.Solid_13.p01_SingleResponsibility.p01_DrawingShape.interfaces.Rengerer;
+import JavaOOP.Solid_13.p01_SingleResponsibility.p01_DrawingShape.interfaces.Shape;
 
 public class Rectangle implements Shape {
     private double width;
