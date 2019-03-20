@@ -1,15 +1,17 @@
-package JavaOOP.Polymorphism_11.Exercise.Vehicles_1;
+package JavaOOP.Polymorphism_11.Exercise.Vehicles_Extendet_2;
 
-
+import java.security.InvalidParameterException;
 import java.text.DecimalFormat;
 
-public abstract class VehicleImpl implements Vehicle {
+public abstract class VehicleImpl implements Vehicle{
     private double fuelQuantity;
     private double fuelConsumption;
+    private int tankCapacity;
 
-    public VehicleImpl(double fuelQuantity, double fuelConsumption) {
+    public VehicleImpl(double fuelQuantity, double fuelConsumption, int tankCapacity) {
         this.fuelQuantity = fuelQuantity;
         this.setFuelConsumption(fuelConsumption);
+        this.tankCapacity = tankCapacity;
     }
 
     protected void setFuelConsumption(double fuelConsumption) {
@@ -24,6 +26,7 @@ public abstract class VehicleImpl implements Vehicle {
 
         if (this.fuelQuantity >= fuelNeeded) {
             result = String.format("travelled %s km", df.format(distance));
+
             this.fuelQuantity -= fuelNeeded;
         }
 
@@ -32,6 +35,14 @@ public abstract class VehicleImpl implements Vehicle {
 
     @Override
     public void refuel(double liters) {
+
+        if (this.fuelQuantity + liters > this.tankCapacity) {
+            throw new InvalidParameterException("Cannot fit fuel in tank");
+        }
+        if (liters <= 0) {
+            throw new InvalidParameterException("Fuel must be a positive number");
+        }
+
         this.fuelQuantity += liters;
     }
 
