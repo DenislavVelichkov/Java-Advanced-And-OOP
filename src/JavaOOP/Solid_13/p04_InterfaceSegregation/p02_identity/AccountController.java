@@ -1,6 +1,6 @@
 package JavaOOP.Solid_13.p04_InterfaceSegregation.p02_identity;
 
-import solidLab.p04_InterfaceSegregation.p02_identity.interfaces.Account;
+import JavaOOP.Solid_13.p04_InterfaceSegregation.p02_identity.interfaces.Account;
 
 public class AccountController {
     private final Account manager;

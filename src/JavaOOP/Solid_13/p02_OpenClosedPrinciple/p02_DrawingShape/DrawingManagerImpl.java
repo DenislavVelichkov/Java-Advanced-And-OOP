@@ -1,7 +1,7 @@
 package JavaOOP.Solid_13.p02_OpenClosedPrinciple.p02_DrawingShape;
 
-import solidLab.p01_SingleResponsibility.p01_DrawingShape.interfaces.DrawingManager;
-import solidLab.p01_SingleResponsibility.p01_DrawingShape.interfaces.Shape;
+import JavaOOP.Solid_13.p01_SingleResponsibility.p01_DrawingShape.interfaces.DrawingManager;
+import JavaOOP.Solid_13.p01_SingleResponsibility.p01_DrawingShape.interfaces.Shape;
 
 
 public class DrawingManagerImpl implements DrawingManager {

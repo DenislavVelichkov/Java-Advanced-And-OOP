@@ -1,24 +1,19 @@
 package JavaOOP.Polymorphism_11.Exercise.Vehicles_1;
 
-public class Car extends Vehicle{
+public class Car extends VehicleImpl {
 
     public Car(double fuelQuantity, double fuelConsumption) {
         super(fuelQuantity, fuelConsumption);
     }
 
     @Override
-    protected void refuel(double fuel) {
-        this.setFuelQuantity(this.getFuelQuantity() + fuel);
+    protected void setFuelConsumption(double fuelConsumption) {
+        super.setFuelConsumption(fuelConsumption + 0.9);
+
     }
 
     @Override
-    protected void drive(double distance) {
-        double requiredFuel = distance * this.getFuelConsumption();
-        if (requiredFuel > this.getFuelQuantity()) {
-            throw new IllegalArgumentException("Car needs refueling");
-        }
-
-        this.setFuelQuantity(this.getFuelQuantity() - requiredFuel);
+    public String drive(double distance) {
+        return "Car " + super.drive(distance);
     }
-
 }
