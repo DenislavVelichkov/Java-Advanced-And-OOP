@@ -1,14 +1,10 @@
 package JavaOOP.Polymorphism_11.Exercise.WildFarm_3;
 
-public abstract class Animal {
+public abstract class  Animal {
     private String animalName;
     private String animalType;
     private Double animalWeight;
     private Integer foodEaten;
-
-    public void setAnimalType(String animalType) {
-        this.animalType = animalType;
-    }
 
     public Animal(String animalName, Double animalWeight) {
         this.animalName = animalName;
@@ -20,6 +16,10 @@ public abstract class Animal {
 
     public String getAnimalName() {
         return this.animalName;
+    }
+
+    public void setAnimalType(String animalType) {
+        this.animalType = animalType;
     }
 
     public String getAnimalType() {

@@ -9,53 +9,57 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        List<Food> foods = new ArrayList<>();
 
-        String input = sc.nextLine();
-        int linesCounter = 0;
-        int index = 0;
-
-        while (!input.equals("End")) {
-            String[]tokens = input.split("\\s+");
-
-            if (linesCounter % 2 == 0) {
-                String animalType = tokens[0];
-                String animalName = tokens[1];
-                double animalWeight = Double.parseDouble(tokens[2]);
-                String animalRegion = tokens[3];
-
-                if (animalType.equals("Cat")) {
-                    String breed = tokens[4];
-                    Cat cat = new Cat(animalName, animalWeight, animalRegion, breed);
-                    animals.add(cat);
-                } else {
-                    Animal animal = createAnimal(animalType, animalName, animalWeight, animalRegion);
-                    animals.add(animal);
-                }
-            } else {
-                String foodType = tokens[0];
-                int foodQuantity = Integer.parseInt(tokens[1]);
-                Food food;
-
-                if (foodType.equals("Meat")) {
-                    food = new Meat(foodQuantity);
-                } else {
-                    food = new Vegetable(foodQuantity);
-                }
-
-                animals.get(index).makeSound();
-                try {
-                    animals.get(index).eat(food);
-                } catch (Exception e) {
-                    System.out.println(e.getMessage());
-                }
-
-                System.out.println(animals.get(index++).toString());
+        while (true) {
+            String input = sc.nextLine();
+            if (input.equals("End")) {
+                break;
             }
 
+            String[] tokens = input.split("\\s+");
+
+            String animalType = tokens[0];
+            String animalName = tokens[1];
+            double animalWeight = Double.parseDouble(tokens[2]);
+            String animalRegion = tokens[3];
+
+            if (animalType.equals("Cat")) {
+                String breed = tokens[4];
+                Cat cat = new Cat(animalName, animalWeight, animalRegion, breed);
+                animals.add(cat);
+            } else {
+                Animal animal = createAnimal(animalType, animalName, animalWeight, animalRegion);
+                animals.add(animal);
+            }
 
             input = sc.nextLine();
-            linesCounter++;
+            tokens = input.split("\\s+");
+
+            String foodType = tokens[0];
+            int foodQuantity = Integer.parseInt(tokens[1]);
+            Food food;
+
+            if (foodType.equals("Meat")) {
+                food = new Meat(foodQuantity);
+            } else {
+                food = new Vegetable(foodQuantity);
+            }
+
+            foods.add(food);
         }
+
+        for (int i = 0; i < foods.size(); i++) {
+            animals.get(i).makeSound();
+
+            try {
+                animals.get(i).eat(foods.get(i));
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }
+
+        animals.forEach(System.out::println);
     }
 
     private static Animal createAnimal(String animalType, String animalName, double animalWeight, String animalRegion) {

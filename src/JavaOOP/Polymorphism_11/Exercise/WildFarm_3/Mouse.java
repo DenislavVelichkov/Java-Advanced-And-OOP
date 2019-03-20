@@ -18,7 +18,7 @@ public class Mouse extends Mammal {
     @Override
     public void eat(Food food) {
         if (!food.getClass().getSimpleName().equals("Vegetable")) {
-            throw new InvalidParameterException("Mouses are not eating that type of food!");
+            throw new InvalidParameterException("Mice are not eating that type of food!");
         }
 
         super.setFoodEaten(super.getFoodEaten() + food.getQuantity());
