@@ -26,7 +26,7 @@ public class Main {
 
             if (animalType.equals("Cat")) {
                 String breed = tokens[4];
-                Cat cat = new Cat(animalName, animalWeight, animalRegion, breed);
+                Cat cat = new Cat(animalName, animalType, animalWeight, animalRegion, breed);
                 animals.add(cat);
             } else {
                 Animal animal = createAnimal(animalType, animalName, animalWeight, animalRegion);

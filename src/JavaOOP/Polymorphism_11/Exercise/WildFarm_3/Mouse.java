@@ -5,8 +5,7 @@ import java.security.InvalidParameterException;
 public class Mouse extends Mammal {
 
     public Mouse(String animalName, String animalType, Double animalWeight, String livingRegion) {
-        super(animalName, animalWeight);
-        super.setAnimalType(animalType);
+        super(animalName, animalType, animalWeight, livingRegion);
         super.setLivingRegion(livingRegion);
     }
 

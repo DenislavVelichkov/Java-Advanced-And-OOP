@@ -6,9 +6,9 @@ public abstract class  Animal {
     private Double animalWeight;
     private Integer foodEaten;
 
-    public Animal(String animalName, Double animalWeight) {
+    public Animal(String animalName, String animalType, Double animalWeight) {
         this.animalName = animalName;
-        this.setAnimalType(animalType);
+        this.animalType = animalType;
         this.animalWeight = animalWeight;
         this.foodEaten = 0;
 
@@ -20,10 +20,6 @@ public abstract class  Animal {
 
     public void setAnimalType(String animalType) {
         this.animalType = animalType;
-    }
-
-    public String getAnimalType() {
-        return this.animalType;
     }
 
     public Double getAnimalWeight() {

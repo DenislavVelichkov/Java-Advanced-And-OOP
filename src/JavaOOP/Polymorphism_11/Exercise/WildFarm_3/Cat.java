@@ -5,9 +5,8 @@ import java.text.DecimalFormat;
 public class Cat extends Felime {
     String breed;
 
-    public Cat(String animalName, Double animalWeight, String livingRegion, String breed) {
-        super(animalName, animalWeight);
-        super.setAnimalType("Cat");
+    public Cat(String animalName, String animalType, Double animalWeight, String livingRegion, String breed) {
+        super(animalName, animalType, animalWeight, livingRegion);
         super.setLivingRegion(livingRegion);
         this.breed = breed;
     }
