@@ -9,7 +9,7 @@ public class FileAppender extends AppenderImpl {
 
     public FileAppender(Layout layout) {
         super(layout);
-        this.file =
+
     }
 
     public FileAppender(Layout layout, ReportLevel reportLevel) {
