@@ -1,7 +1,9 @@
-package JavaOOP.Solid_13.Exercise.models;
+package JavaOOP.Solid_13.Exercise.factories;
 
 import JavaOOP.Solid_13.Exercise.interfaces.Factory;
 import JavaOOP.Solid_13.Exercise.interfaces.Layout;
+import JavaOOP.Solid_13.Exercise.models.SimpleLayout;
+import JavaOOP.Solid_13.Exercise.models.XmlLayout;
 
 public class LayoutFactory implements Factory<Layout> {
 

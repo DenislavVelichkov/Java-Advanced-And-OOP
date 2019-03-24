@@ -1,9 +1,12 @@
-package JavaOOP.Solid_13.Exercise.models;
+package JavaOOP.Solid_13.Exercise.factories;
 
 import JavaOOP.Solid_13.Exercise.enums.ReportLevel;
+import JavaOOP.Solid_13.Exercise.factories.LayoutFactory;
 import JavaOOP.Solid_13.Exercise.interfaces.Appender;
 import JavaOOP.Solid_13.Exercise.interfaces.Factory;
 import JavaOOP.Solid_13.Exercise.interfaces.Layout;
+import JavaOOP.Solid_13.Exercise.models.ConsoleAppender;
+import JavaOOP.Solid_13.Exercise.models.FileAppender;
 
 public class AppenderFactory implements Factory<Appender> {
     private LayoutFactory layoutFactory;
