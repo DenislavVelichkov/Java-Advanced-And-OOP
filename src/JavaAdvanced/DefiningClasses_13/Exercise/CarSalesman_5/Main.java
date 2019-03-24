@@ -16,7 +16,7 @@ public class Main {
         int n = Integer.parseInt(reader.readLine());
         String text = reader.readLine();
         List<Engine> engineDataBase = new ArrayList<>();
-        /*Map<String, List<Engine>> cars = new LinkedHashMap<>();*/
+        /*Map<String, List<EngineImpl>> cars = new LinkedHashMap<>();*/
 
         while (n-- > 0) {
             String[] line = text.split(" ");
