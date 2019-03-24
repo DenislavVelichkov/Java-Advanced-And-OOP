@@ -7,4 +7,5 @@ public enum ReportLevel {
     ERROR,
     CRITICAL,
     FATAL,
+    ;
 }

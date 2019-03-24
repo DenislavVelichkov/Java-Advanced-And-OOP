@@ -45,4 +45,17 @@ public class MessageLogger implements Logger {
         this.logAll(time, message, ReportLevel.FATAL);
 
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder("Logger info");
+        sb.append(System.lineSeparator());
+
+        for (Appender appender : this.appenders) {
+            sb.append(System.lineSeparator());
+            sb.append(appender.toString());
+        }
+
+        return sb.toString();
+    }
 }

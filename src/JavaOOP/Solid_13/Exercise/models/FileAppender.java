@@ -22,10 +22,19 @@ public class FileAppender extends AppenderImpl {
             throw new IllegalCallerException("File not set!");
         }
 
-        file.append(this.getLayout().format(time, message, reportLevel));
+        if (this.canAppend(reportLevel)) {
+            file.append(this.getLayout().format(time, message, reportLevel));
+        }
     }
 
     public void setFile(File file) {
         this.file = file;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() +
+                ", File size; " +
+                this.file.getSize();
     }
 }

@@ -1,8 +1,8 @@
 package JavaOOP.ReflectionsAndAnnotations_15.Exercise.pr0304Barracks.core.factories;
 
 import jdk.jshell.spi.ExecutionControl;
-import pr0304Barracks.interfaces.Unit;
-import pr0304Barracks.interfaces.UnitFactory;
+import JavaOOP.ReflectionsAndAnnotations_15.Exercise.pr0304Barracks.interfaces.Unit;
+import JavaOOP.ReflectionsAndAnnotations_15.Exercise.pr0304Barracks.interfaces.UnitFactory;
 
 public class UnitFactoryImpl implements UnitFactory {
 

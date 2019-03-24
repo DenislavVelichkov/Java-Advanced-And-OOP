@@ -1,11 +1,11 @@
 package JavaOOP.ReflectionsAndAnnotations_15.Exercise.pr0304Barracks;
 
-import pr0304Barracks.interfaces.Repository;
-import pr0304Barracks.interfaces.Runnable;
-import pr0304Barracks.interfaces.UnitFactory;
-import pr0304Barracks.core.Engine;
-import pr0304Barracks.core.factories.UnitFactoryImpl;
-import pr0304Barracks.data.UnitRepository;
+import JavaOOP.ReflectionsAndAnnotations_15.Exercise.pr0304Barracks.interfaces.Repository;
+import JavaOOP.ReflectionsAndAnnotations_15.Exercise.pr0304Barracks.interfaces.Runnable;
+import JavaOOP.ReflectionsAndAnnotations_15.Exercise.pr0304Barracks.interfaces.UnitFactory;
+import JavaOOP.ReflectionsAndAnnotations_15.Exercise.pr0304Barracks.core.Engine;
+import JavaOOP.ReflectionsAndAnnotations_15.Exercise.pr0304Barracks.core.factories.UnitFactoryImpl;
+import JavaOOP.ReflectionsAndAnnotations_15.Exercise.pr0304Barracks.data.UnitRepository;
 
 public class Main {
 
