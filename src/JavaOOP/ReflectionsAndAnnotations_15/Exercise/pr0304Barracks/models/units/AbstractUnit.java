@@ -1,6 +1,6 @@
 package JavaOOP.ReflectionsAndAnnotations_15.Exercise.pr0304Barracks.models.units;
 
-import JavaOOP.ReflectionsAndAnnotations_15.Exercise.pr0304Barracks.interfaces.Unit;
+import JavaOOP.ReflectionsAndAnnotations_15.Exercise.pr0304Barracks.contracts.Unit;
 
 public abstract class AbstractUnit implements Unit {
     private int health;

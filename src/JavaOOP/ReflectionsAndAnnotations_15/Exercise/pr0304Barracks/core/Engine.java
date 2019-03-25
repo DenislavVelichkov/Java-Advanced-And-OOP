@@ -1,10 +1,10 @@
 package JavaOOP.ReflectionsAndAnnotations_15.Exercise.pr0304Barracks.core;
 
 import jdk.jshell.spi.ExecutionControl;
-import JavaOOP.ReflectionsAndAnnotations_15.Exercise.pr0304Barracks.interfaces.Repository;
-import JavaOOP.ReflectionsAndAnnotations_15.Exercise.pr0304Barracks.interfaces.Runnable;
-import JavaOOP.ReflectionsAndAnnotations_15.Exercise.pr0304Barracks.interfaces.Unit;
-import JavaOOP.ReflectionsAndAnnotations_15.Exercise.pr0304Barracks.interfaces.UnitFactory;
+import JavaOOP.ReflectionsAndAnnotations_15.Exercise.pr0304Barracks.contracts.Repository;
+import JavaOOP.ReflectionsAndAnnotations_15.Exercise.pr0304Barracks.contracts.Runnable;
+import JavaOOP.ReflectionsAndAnnotations_15.Exercise.pr0304Barracks.contracts.Unit;
+import JavaOOP.ReflectionsAndAnnotations_15.Exercise.pr0304Barracks.contracts.UnitFactory;
 
 import java.io.BufferedReader;
 import java.io.IOException;

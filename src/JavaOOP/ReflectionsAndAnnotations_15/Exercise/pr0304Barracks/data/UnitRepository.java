@@ -1,8 +1,8 @@
 package JavaOOP.ReflectionsAndAnnotations_15.Exercise.pr0304Barracks.data;
 
 import jdk.jshell.spi.ExecutionControl;
-import JavaOOP.ReflectionsAndAnnotations_15.Exercise.pr0304Barracks.interfaces.Repository;
-import JavaOOP.ReflectionsAndAnnotations_15.Exercise.pr0304Barracks.interfaces.Unit;
+import JavaOOP.ReflectionsAndAnnotations_15.Exercise.pr0304Barracks.contracts.Repository;
+import JavaOOP.ReflectionsAndAnnotations_15.Exercise.pr0304Barracks.contracts.Unit;
 
 import java.util.Map;
 import java.util.TreeMap;
