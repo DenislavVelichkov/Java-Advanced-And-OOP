@@ -1,4 +1,4 @@
-package JavaOOP.ReflectionsAndAnnotations_15.Exercise.pr0304Barracks.core;
+package pr0304Barracks.core;
 
 import jdk.jshell.spi.ExecutionControl;
 import pr0304Barracks.contracts.Repository;

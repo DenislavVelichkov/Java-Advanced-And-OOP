@@ -1,4 +1,4 @@
-package JavaOOP.ReflectionsAndAnnotations_15.Exercise.pr0304Barracks.models.units;
+package pr0304Barracks.models.units;
 
 import pr0304Barracks.contracts.Unit;
 

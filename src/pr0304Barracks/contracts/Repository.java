@@ -1,4 +1,4 @@
-package JavaOOP.ReflectionsAndAnnotations_15.Exercise.pr0304Barracks.interfaces;
+package pr0304Barracks.contracts;
 
 import jdk.jshell.spi.ExecutionControl;
 
