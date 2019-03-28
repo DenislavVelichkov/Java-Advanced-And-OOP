@@ -21,7 +21,7 @@ public class PartyReservationFilter_11 {
             String[] tokens = line.substring(line.indexOf(";") + 1).split(";");
             String name = tokens[0] + tokens[1];
 
-            if (line.contains("Add")) {
+            if (line.contains("AddCommand")) {
                 Predicate<String> predicate = null;
                 switch (tokens[0]) {
                     case "Starts with":

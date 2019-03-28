@@ -15,7 +15,7 @@ public class Main {
             String command = cmd[0];
 
             switch (command) {
-                case "Add":
+                case "AddCommand":
                     list.addData(cmd[1]);
                     break;
                 case "Remove":

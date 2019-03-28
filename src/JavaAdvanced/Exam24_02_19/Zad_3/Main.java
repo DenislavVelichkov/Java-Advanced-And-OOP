@@ -29,7 +29,7 @@ public class Main {
 //  * Agility: 35
 //  * Intelligence: 48
 
-//Add Hero
+//AddCommand Hero
         repository.add(hero); //returns 1
 //Remove Hero
         repository.remove("Hero Name"); //returns 0
@@ -37,7 +37,7 @@ public class Main {
         Item secondItem = new Item(100, 20, 13);
         Hero secondHero = new Hero("Second Hero Name", 125, secondItem);
 
-//Add Heroes
+//AddCommand Heroes
         repository.add(hero); //returns 1
         repository.add(secondHero); //returns 2
 

@@ -11,7 +11,7 @@ public class Main {
         //Initialize JavaOOP.Inheritance_7.Exercise.Person_1.Human
         Person person = new Person("Pesho", 14, "13-07-2004");
 
-        //Add two entities
+        //AddCommand two entities
         repository.add(person);
 
         //Initialize second JavaOOP.Inheritance_7.Exercise.Person_1.Human object

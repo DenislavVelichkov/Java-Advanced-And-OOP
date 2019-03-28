@@ -21,7 +21,7 @@ public class Main {
             try {
                 if (command.equals("Team")) {
                     teams.putIfAbsent(teamName, new Team(teamName));
-                } else if (command.equals("Add")) {
+                } else if (command.equals("AddCommand")) {
                     if (!teams.containsKey(teamName)) {
                         throw new IllegalArgumentException(
                                 String.format("Team %s does not exist.", teamName

@@ -11,7 +11,7 @@ public class CommandParser {
         String[] tokens = command.split("\\s+");
 
         switch (tokens[0]) {
-            case "Add":
+            case "AddCommand":
                 this.smartList.add(tokens[1]);
                 break;
             case "Remove":
