@@ -1,4 +1,4 @@
-package JavaOOP.ReflectionsAndAnnotations_15.Exercise.pr0304Barracks;
+package JavaOOP.ReflectionsAndAnnotations_15.Exercise.pr04Barracks;
 
 import JavaOOP.ReflectionsAndAnnotations_15.Exercise.pr04Barracks.contracts.Repository;
 import JavaOOP.ReflectionsAndAnnotations_15.Exercise.pr04Barracks.contracts.Runnable;

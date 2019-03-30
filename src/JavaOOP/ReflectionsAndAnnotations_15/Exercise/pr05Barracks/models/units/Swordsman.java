@@ -1,6 +1,4 @@
-package JavaOOP.ReflectionsAndAnnotations_15.Exercise.pr0304Barracks.models.units;
-
-import JavaOOP.ReflectionsAndAnnotations_15.Exercise.pr04Barracks.models.units.AbstractUnit;
+package JavaOOP.ReflectionsAndAnnotations_15.Exercise.pr05Barracks.models.units;
 
 public class Swordsman extends AbstractUnit {
     private static final int SWORDSMAN_HEALTH = 40;

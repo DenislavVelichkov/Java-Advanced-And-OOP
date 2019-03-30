@@ -1,6 +1,4 @@
-package JavaOOP.ReflectionsAndAnnotations_15.Exercise.pr0304Barracks.models.units;
-
-import JavaOOP.ReflectionsAndAnnotations_15.Exercise.pr04Barracks.models.units.AbstractUnit;
+package JavaOOP.ReflectionsAndAnnotations_15.Exercise.pr04Barracks.models.units;
 
 public class Pikeman extends AbstractUnit {
 

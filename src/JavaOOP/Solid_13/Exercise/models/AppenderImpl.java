@@ -51,7 +51,7 @@ public abstract class AppenderImpl implements Appender {
         return String.format(
                 "Appender type: %s, " +
                 "Layout type: %s, " +
-                "Report level: %s," +
+                "ReportCommand level: %s," +
                 "Messages appended %d, ",
                 this.getClass().getSimpleName(),
                 this.layout.getClass().getSimpleName(),

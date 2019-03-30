@@ -1,6 +1,6 @@
 package JavaOOP.ReflectionsAndAnnotations_15.Exercise.pr0304Barracks.contracts;
 
-import pr0304Barracks.contracts.Executable;
+import JavaOOP.ReflectionsAndAnnotations_15.Exercise.pr04Barracks.contracts.Executable;
 
 public interface CommandInterpreter {
 
