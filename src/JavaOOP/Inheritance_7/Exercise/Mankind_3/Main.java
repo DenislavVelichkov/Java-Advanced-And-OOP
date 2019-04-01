@@ -4,13 +4,13 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-       /* Scanner sc = new Scanner(System.in);
+       /* Scanner sc = new Scanner(ComputerSystem.in);
         String data = sc.nextLine();
         try {
             String[] input = data.split("\\s+");
             Student student = new Student(input[0], input[1], input[2]);
 
-            System.out.println(student);
+            ComputerSystem.out.println(student);
 
 
             data = sc.nextLine();
@@ -18,9 +18,9 @@ public class Main {
 
             Worker worker = new Worker(input[0], input[1], Double.parseDouble(input[2]), Double.parseDouble(input[3]));
 
-            System.out.println(worker);
+            ComputerSystem.out.println(worker);
         } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
+            ComputerSystem.out.println(e.getMessage());
         }*/
     }
 }

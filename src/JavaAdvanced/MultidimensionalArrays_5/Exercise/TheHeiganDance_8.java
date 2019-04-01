@@ -105,9 +105,9 @@ public class TheHeiganDance_8 {
     /*private static void printMatrix(int[][] board) {
         for (int i = 0; i < board.length; i++) {
             for (int i1 = 0; i1 < board[i].length; i1++) {
-                System.out.print(board[i][i1] + " ");
+                ComputerSystem.out.print(board[i][i1] + " ");
             }
-            System.out.println();
+            ComputerSystem.out.println();
         }
     }*/
 

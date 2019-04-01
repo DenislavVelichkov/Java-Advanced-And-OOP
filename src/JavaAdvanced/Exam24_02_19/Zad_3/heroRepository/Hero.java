@@ -30,9 +30,9 @@ public class Hero {
         str.append("Hero: ").append(this.name).append(" - ").append(this.level).append("lvl")
                 .append(System.lineSeparator())
         .append(this.getItem().toString());
-                /*.append(" * Strength: ").append(this.getItem().getStrength()).append(System.lineSeparator())
-                .append(" * Agility: ").append(this.getItem().getAgility()).append(System.lineSeparator())
-                .append(" * Intelligence: ").append(this.getItem().getIntelligence()).append(System.lineSeparator());*/
+                /*.append(" * Strength: ").append(this.getItem().getStrength()).append(ComputerSystem.lineSeparator())
+                .append(" * Agility: ").append(this.getItem().getAgility()).append(ComputerSystem.lineSeparator())
+                .append(" * Intelligence: ").append(this.getItem().getIntelligence()).append(ComputerSystem.lineSeparator());*/
 
         return str.toString();
     }
