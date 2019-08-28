@@ -3,7 +3,7 @@
 ## Java Advanced Certificate: https://softuni.bg/Certificates/Details/69534/814f427d
 ## Java OOP Certificate: https://softuni.bg/Certificates/Details/69514/31003f62
 
-<p text-align="center">Java Tech 4.0 Module at 
+<p text-align="center">Java Advanced and Java OOP Modules at 
 <a href="https://www.softuni.bg">SoftUni <img src="http://grozdarska.net/wp-content/uploads/2015/01/SoftUni-Logo-300x300.png" width="30" alt="software-university"></a>. You can find all tasks and homeworks during the course in this repository.</p>
 
 ## JAVA ADVANCED COURSE SUMMARY:
